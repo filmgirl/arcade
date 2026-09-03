@@ -227,6 +227,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .cover-image .game-art { position: absolute; inset: 0; object-fit: cover; object-position: center; mask-image: linear-gradient(to right, var(--cp-clear), var(--cp-enamel) 25%); }
 .game-cover.has-character { min-height: 210px; grid-template-columns: 55fr 45fr; }
 .cover-character { position: absolute; top: 5%; right: 5%; width: 80%; height: 90%; object-fit: contain; }
+.art-wrap .cover-character { top: 8%; left: 20%; right: auto; width: 60%; height: 76%; }
 .player-toolbar { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; padding: 14px; border-bottom: 1px solid var(--cp-screen-border); }
 .compact-player-title { display: none; flex: 1; font-size: 16px; font-weight: 700; letter-spacing: -.2px; }
 .player-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-left: auto; }

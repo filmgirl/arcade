@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -2 20 20" shape-rendering="crispEdges">
+  <title>Pixel Flappy Copilot</title>
+  <path d="M8 0h4v1H8z" fill="#ffb7a5"/>
+  <path d="M7 1h6v1H7zM1 9h2v2H1zM17 9h2v2h-2z" fill="#ded4f1"/>
+  <path d="M5 2h10v1H5z" fill="#fffdf4"/>
+  <path d="M4 3h12v1H4zM3 4h14v4H3zM2 14h16v1H2z" fill="#b7c8f3"/>
+  <path d="M4 5h4v3H4zM12 5h4v3h-4zM3 9h14v5H3zM3 15h14v1H3z" fill="#34313e"/>
+  <path d="M3 8h14v1H3zM1 11h2v3H1zM17 11h2v3h-2z" fill="#b6a3d2"/>
+  <path d="M7 10h2v3H7zM11 10h2v3h-2z" fill="#c5e7d8"/>
+</svg>

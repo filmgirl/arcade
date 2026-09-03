@@ -27,6 +27,8 @@
     "url": "https://filmgirl.github.io/flappy-copilot/",
     "repository": "https://github.com/filmgirl/flappy-copilot",
     "art": "./assets/flappy-copilot.png",
+    "coverArt": "./assets/flappy-cover.svg",
+    "coverCharacter": "./assets/copilot-candy.svg",
     "accent": "mint",
     "controls": [
       { "keys": "Space / click / tap", "action": "Flap" },

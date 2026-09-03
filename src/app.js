@@ -36,6 +36,15 @@ function gameArt(game, source = game.art, className = "game-art") {
   return image;
 }
 
+function gameArtwork(game) {
+  const artwork = document.createDocumentFragment();
+  artwork.append(gameArt(game, game.coverArt ?? game.art));
+  if (game.coverCharacter) {
+    artwork.append(gameArt(game, game.coverCharacter, "cover-character"));
+  }
+  return artwork;
+}
+
 function renderCatalog() {
   const query = $("game-search").value.trim().toLowerCase();
   const shown = games.filter((game) => `${game.title} ${game.category} ${game.description}`.toLowerCase().includes(query));
@@ -45,7 +54,7 @@ function renderCatalog() {
     card.dataset.gameId = game.id;
     card.setAttribute("aria-label", `Play ${game.title}`);
     const art = element("span", "art-wrap");
-    art.append(gameArt(game), element("span", "game-category micro", game.category));
+    art.append(gameArtwork(game), element("span", "game-category micro", game.category));
     const info = element("span", "game-info");
     const title = element("span", "game-name", game.title);
     const description = element("span", "game-description", game.description);
@@ -126,10 +135,9 @@ function launch(game) {
   $("instruction-content").replaceChildren(guide(game));
   $("player-guide").replaceChildren(guide(game));
   $("game-cover").className = `game-cover ${game.accent}`;
-  $("cover-image").replaceChildren(gameArt(game, game.coverArt ?? game.art));
+  $("cover-image").replaceChildren(gameArtwork(game));
   if (game.coverCharacter) {
     $("game-cover").classList.add("has-character");
-    $("cover-image").append(gameArt(game, game.coverCharacter, "cover-character"));
   }
   $("cover-category").textContent = game.category;
   $("cover-description").textContent = game.description;

@@ -13,8 +13,8 @@ test("shipped games validate and resolve art under the Pages project path", () =
   assert.equal(games[0].art, `${base}assets/mona-maze.png`);
   assert.equal(games[0].coverArt, `${base}assets/mona-cover.svg`);
   assert.equal(games[0].coverCharacter, `${base}assets/octocat-candy.svg`);
-  assert.equal(games[1].coverArt, null);
-  assert.equal(games[1].coverCharacter, null);
+  assert.equal(games[1].coverArt, `${base}assets/flappy-cover.svg`);
+  assert.equal(games[1].coverCharacter, `${base}assets/copilot-candy.svg`);
   assert.equal(games[0].url, "https://filmgirl.github.io/mona-maze/");
   assert.equal(games[1].viewport.layout, "portrait");
 });
@@ -60,11 +60,15 @@ test("catalog is data-driven for large collections; optional metadata has safe d
   delete entries[0].viewport;
   delete entries[0].accent;
   delete entries[0].category;
+  delete entries[0].coverArt;
+  delete entries[0].coverCharacter;
   const result = validateCatalog(entries, base);
   assert.equal(result.games.length, 15);
   assert.deepEqual(result.errors, []);
   assert.deepEqual(result.games[0].viewport, { layout: "document", height: 960, mobileHeight: 1100 });
   assert.equal(result.games[0].accent, "lavender");
+  assert.equal(result.games[0].coverArt, null);
+  assert.equal(result.games[0].coverCharacter, null);
 });
 
 test("empty and structurally invalid catalogs are distinguished", () => {

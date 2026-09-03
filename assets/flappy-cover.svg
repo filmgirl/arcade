@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360">
+  <title>Pastel commit pipelines</title>
+  <defs>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#a9ccbd"/></pattern>
+    <g id="node"><circle r="7" fill="currentColor" stroke="#34313e" stroke-width="2"/></g>
+  </defs>
+  <path fill="#c5e7d8" d="M0 0h640v360H0z"/><path fill="url(#dots)" d="M0 0h640v360H0z"/>
+  <g fill="none" stroke="#34313e" stroke-width="9" stroke-linecap="square">
+    <path d="M97-8v82m30-82v56q0 28 30 28M157-8v82M97 231v137m30-137v51q0 25 30 25v61m0-137v76"/>
+    <path d="M479-8v119m30-119v69q0 25 30 25v25m0-119v69M479 259v109m30-109v109m30-109v109"/>
+  </g>
+  <g fill="none" stroke-width="5">
+    <path d="M97-8v82m0 157v137m382-376v119m0 148v109" stroke="#ffb7a5"/>
+    <path d="M127-8v56q0 28 30 28m-30 155v51q0 25 30 25v61m352-376v69q0 25 30 25v25m-30 148v109" stroke="#ded4f1"/>
+    <path d="M157-8v82m0 157v76m382-315v69m0 198v109" stroke="#8ab7a3"/>
+  </g>
+  <g color="#ffb7a5">
+    <use href="#node" x="97" y="16"/><use href="#node" x="97" y="46"/><use href="#node" x="97" y="246"/><use href="#node" x="97" y="286"/><use href="#node" x="97" y="326"/>
+    <use href="#node" x="479" y="16"/><use href="#node" x="479" y="56"/><use href="#node" x="479" y="96"/><use href="#node" x="479" y="279"/><use href="#node" x="479" y="319"/>
+  </g>
+  <g color="#ded4f1">
+    <use href="#node" x="127" y="30"/><use href="#node" x="127" y="260"/><use href="#node" x="157" y="331"/>
+    <use href="#node" x="509" y="32"/><use href="#node" x="509" y="279"/><use href="#node" x="509" y="319"/>
+  </g>
+  <g color="#8ab7a3">
+    <use href="#node" x="157" y="16"/><use href="#node" x="157" y="246"/><use href="#node" x="157" y="279"/>
+    <use href="#node" x="539" y="16"/><use href="#node" x="539" y="279"/><use href="#node" x="539" y="319"/>
+  </g>
+  <g fill="#fffdf4" stroke="#34313e" stroke-width="3"><circle cx="157" cy="76" r="9"/><circle cx="539" cy="111" r="9"/><circle cx="97" cy="231" r="9"/></g>
+  <g fill="none" stroke="#8ab7a3" stroke-width="4"><path d="M207 158h32m-45 17h38m-28 17h28"/></g>
+  <g fill="#fffdf4"><path d="M415 190h5v7h7v5h-7v7h-5v-7h-7v-5h7zM53 153h5v7h7v5h-7v7h-5v-7h-7v-5h7z"/></g>
+</svg>

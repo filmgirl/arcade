@@ -34,13 +34,14 @@ npm test
 | Flappy Copilot | [flappy-copilot](https://filmgirl.github.io/flappy-copilot/) | [filmgirl/flappy-copilot](https://github.com/filmgirl/flappy-copilot) |
 
 The games remain in their own repositories. This project embeds them; it does not
-copy or change their implementations. The game covers in `assets/` are actual
-gameplay screenshots captured from each live game. The selector crops them to
-fit its cards; it does not redraw or recolor the games. The playing screen has
-a separate cover header: Mona uses an illustrated lavender maze with a minimal
-pixel Octocat, while Flappy uses its gameplay screenshot. The title, genre, and accent
-color come from the catalog. Focus mode hides this header to keep the game area
-clear. The marquee uses a locally hosted
+copy or change their implementations. The library and playing-screen headers
+share coordinated illustrated covers: a lavender maze and pixel Octocat for
+Mona, and mint commit pipelines with a pixel Copilot for Flappy. Flappy's character
+uses the actual game's sprite layout with the cabinet's pastel palette.
+The original gameplay PNG captures remain in `assets/` as references and catalog
+fallback artwork. Cover compositions, titles, genres, and accent colors come
+from the catalog. Focus mode hides the cover header to keep the game area clear.
+The marquee uses a locally hosted
 [Silkscreen](https://github.com/googlefonts/silkscreen) font; its SIL Open Font
 License is included in `assets/fonts/OFL.txt`. No fonts are fetched from third
 parties at runtime.
@@ -88,8 +89,8 @@ Choose embeddable games you trust and have permission to host.
 | `id` | Unique lowercase slug with hyphens; keep it stable to preserve links. |
 | `title`, `description`, `instructions` | Non-empty plain text, rendered without HTML interpretation. |
 | `url`, `art` | Relative local path or absolute HTTPS URL. Credentials, non-HTTPS remote URLs, protocol-relative URLs, and unsafe protocols are rejected. |
-| `coverArt` | Optional separate playing-screen cover image; defaults to the library's `art`. Same URL restrictions apply. |
-| `coverCharacter` | Optional transparent character artwork layered over the cover; must be authorized for use. Same URL restrictions apply. |
+| `coverArt` | Optional illustrated background used by both library cards and player headers; defaults to `art`. Same URL restrictions apply. |
+| `coverCharacter` | Optional transparent character layered over both cover surfaces; must be authorized for use. Same URL restrictions apply. |
 | `repository` | Absolute HTTPS source link. |
 | `controls` | At least one object with non-empty `keys` and `action` strings. |
 | `category` | Optional short genre label; defaults to "Arcade game". |
