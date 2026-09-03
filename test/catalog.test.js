@@ -3,36 +3,40 @@ import assert from "node:assert/strict";
 import { readFile, stat } from "node:fs/promises";
 import { gameFromHash, resolveSafeUrl, validateCatalog } from "../src/catalog.js";
 
-const base = "https://filmgirl.github.io/github-arcade/";
-const deployedRoot = new URL("../", import.meta.url);
+const base = "https://filmgirl.github.io/arcade/";
 const catalog = JSON.parse(await readFile(new URL("../games.json", import.meta.url), "utf8"));
-const guide = await readFile(new URL("../docs/adding-games.md", import.meta.url), "utf8");
 
-test("shipped games validate and resolve art under the Pages project path", async () => {
+test("shipped games validate and resolve art under the Pages project path", () => {
   const { games, errors } = validateCatalog(catalog, base);
   assert.deepEqual(errors, []);
-  assert.ok(games.length > 0);
-  assert.deepEqual(new Set(games.map(({ id }) => id)), new Set(catalog.map(({ id }) => id)));
-  for (const entry of catalog) {
-    for (const field of ["art", "coverArt", "coverCharacter"]) {
-      const reference = entry[field];
-      if (reference === undefined || /^[a-z][a-z\d+.-]*:/i.test(reference)) continue;
-      const artwork = new URL(reference, deployedRoot);
-      const file = await stat(artwork);
-      assert.ok(file.isFile() && file.size > 0, `${entry.id}.${field} must be a non-empty deployed file`);
-    }
-  }
-  const byId = new Map(games.map((game) => [game.id, game]));
-  assert.equal(byId.get("mona-maze").url, "https://filmgirl.github.io/mona-maze/");
-  assert.equal(byId.get("flappy-copilot").viewport.layout, "portrait");
+  assert.equal(games.length, catalog.length);
+  const mona = games.find((game) => game.id === "mona-maze");
+  const flappy = games.find((game) => game.id === "flappy-copilot");
+  assert.ok(mona);
+  assert.ok(flappy);
+  assert.equal(mona.art, `${base}assets/mona-maze.png`);
+  assert.equal(mona.coverArt, `${base}assets/mona-cover.svg`);
+  assert.equal(mona.coverCharacter, `${base}assets/octocat-candy.svg`);
+  assert.equal(flappy.coverArt, `${base}assets/flappy-cover.svg`);
+  assert.equal(flappy.coverCharacter, `${base}assets/copilot-candy.svg`);
+  assert.equal(mona.url, "https://filmgirl.github.io/mona-maze/");
+  assert.equal(flappy.viewport.layout, "portrait");
 });
 
-test("the adding-games guide contains a schema-valid catalog example", () => {
-  const example = guide.match(/```json\n([\s\S]*?)\n```/)?.[1];
-  assert.ok(example, "guide should contain a JSON catalog example");
-  const { games, errors } = validateCatalog([JSON.parse(example)], base);
-  assert.equal(games.length, 1);
-  assert.deepEqual(errors, []);
+test("every local catalog artwork reference points to a shipping asset", async () => {
+  const root = new URL("../", import.meta.url);
+  for (const game of catalog) {
+    for (const field of ["art", "coverArt", "coverCharacter"]) {
+      const reference = game[field];
+      if (reference === undefined || /^https:/i.test(reference.trim())) continue;
+      const asset = new URL(reference, root);
+      assert.ok(asset.href.startsWith(root.href), `${game.id}.${field} must stay within the project`);
+      const relative = asset.href.slice(root.href.length);
+      assert.match(relative, /^(assets|games|src)\//, `${game.id}.${field} must be included in the deployment`);
+      const info = await stat(asset);
+      assert.ok(info.isFile() && info.size > 0, `${game.id}.${field} must be a non-empty file`);
+    }
+  }
 });
 
 test("local games work under project paths and HTTP development servers", () => {

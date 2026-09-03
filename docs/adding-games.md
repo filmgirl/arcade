@@ -1,12 +1,80 @@
-# Adding a game
+# Adding a game to the Commit Cabinet
 
-GitHub Arcade is a catalog and cabinet, not a game engine. A game addition
-should be predictable: approve the game and its artwork, add one object to
-`games.json`, deploy all local files, and verify the embedded experience.
+**Goal: one small catalog-and-artwork PR, not a cabinet rewrite.**
 
-## Catalog entry
+This guide is for humans and coding agents. Read [AGENTS.md](../AGENTS.md) for
+repository guardrails and the [catalog field reference](../README.md#add-a-game)
+for exact accepted values. Validate against `src/catalog.js`; do not invent
+manifest fields or assume the player supports them.
 
-Copy this shape and replace the example values:
+## 1. Establish that the game is ready
+
+Collect the following before editing the catalog:
+
+- A stable playable HTTPS URL and a source repository URL.
+- The real title, short description, genre, controls, and start/pause/audio
+  behavior. Read the game's documentation and actually play it.
+- Desktop and touch support, including any limitations.
+- A gameplay screenshot for reference, plus permission for any character,
+  trademark, font, or artwork you intend to include.
+
+Prefer a standalone game maintained and deployed from its own repository.
+Existing games do not need to be ported into this codebase or rewritten in a
+framework. For an intentionally local game, put its complete distribution in
+`games/<id>/` and use `./games/<id>/index.html`.
+
+Check the real game in an iframe, not only in a top-level tab. A page may return
+HTTP 200 while CSP or `X-Frame-Options` prevents embedding. The cabinet cannot
+bypass those restrictions. Keep the direct Open game link, and ask for an
+integration decision if the game cannot function in the existing sandbox.
+
+Current sandbox permissions allow scripts, same-origin behavior, and pointer
+lock. The iframe also delegates fullscreen and gamepad. Popups and top-level
+navigation are not enabled. Same-origin local games are trusted code:
+`allow-scripts` plus `allow-same-origin` is not a security boundary for them.
+
+## 2. Prepare a matching cover
+
+Use the existing cabinet's art direction:
+
+- Warm ivory, graphite outlines, and lavender/mint/coral accents.
+- Simple pixel characters with recognizable features from the real game.
+- An illustrated environment that communicates the actual gameplay.
+- Low detail that remains legible at card size; no noisy effects or intricate
+  character rendering.
+
+For a new game, capture the real gameplay first. Propose a few cover directions
+for review before changing an approved design. Do not substitute a generic cat,
+robot, or platformer scene that misrepresents the game.
+
+The renderer composes the same assets in the library and player header:
+
+| Field | Role |
+| --- | --- |
+| `art` | Required base image, usually a gameplay capture. Used when `coverArt` is omitted. It is not an automatic network-error fallback. |
+| `coverArt` | Optional illustrated background that replaces `art` on both surfaces. |
+| `coverCharacter` | Optional transparent character layered over the background on both surfaces. |
+| `accent` | `lavender`, `mint`, or `coral`, used by cabinet styling. |
+
+Prefer a 640x360 landscape SVG or PNG for the background and a square transparent
+SVG or PNG for the character. Keep important content away from edges: library
+backgrounds use a 16:9 crop, while headers have a different responsive crop.
+The renderer positions the character for each surface; test both.
+
+Put shipping assets under `assets/` with descriptive names, for example
+`branch-runner.png`, `branch-runner-cover.svg`, and `branch-runner-character.svg`.
+Local SVGs should be self-contained; avoid scripts, external font dependencies,
+or external images nested inside an SVG. Keep the original captures if useful,
+and include required attribution and license terms.
+
+Existing permission for one asset is not blanket permission for every new use.
+See the [artwork notes](../README.md#games) before using GitHub characters.
+
+## 3. Register the game
+
+Append an object to the array in `games.json`, or insert it at the intended display
+position. Preserve existing IDs and entries. This fictional example includes all
+supported fields; replace its URLs, controls, and asset paths with real ones:
 
 ```json
 {
@@ -14,17 +82,18 @@ Copy this shape and replace the example values:
   "title": "Branch Runner",
   "description": "Jump over merge conflicts on the way to your next release.",
   "category": "Platformer",
-  "url": "./games/branch-runner/index.html",
+  "url": "https://your-name.github.io/branch-runner/",
   "repository": "https://github.com/your-name/branch-runner",
-  "art": "./assets/branch-runner.svg",
+  "art": "./assets/branch-runner.png",
   "coverArt": "./assets/branch-runner-cover.svg",
   "coverCharacter": "./assets/branch-runner-character.svg",
   "accent": "coral",
   "controls": [
     { "keys": "Arrows", "action": "Move" },
-    { "keys": "Space / tap", "action": "Jump" }
+    { "keys": "Space / tap", "action": "Jump" },
+    { "keys": "P", "action": "Pause" }
   ],
-  "instructions": "Reach the release flag. Click or tap the game before using keyboard controls.",
+  "instructions": "Reach the release flag. Use the game's own sound controls.",
   "viewport": {
     "layout": "document",
     "height": 960,
@@ -33,73 +102,94 @@ Copy this shape and replace the example values:
 }
 ```
 
-`id` is a stable lowercase hyphenated slug. Titles, descriptions, instructions,
-control keys, and actions are non-empty plain text. `repository` must be an
-HTTPS source link. `url`, `art`, `coverArt`, and `coverCharacter` may be local
-relative paths or HTTPS URLs; credentials, HTTP URLs, network-path URLs, and
-unsafe protocols are rejected. `coverArt` and `coverCharacter` are optional.
-`category` defaults to `Arcade game`, and `accent` is `lavender`, `mint`, or
-`coral`.
+Omit optional fields you do not need; do not use empty strings or `null` as
+placeholders. Describe only controls that actually exist in the new game.
+Text fields are plain text, not HTML.
 
-Relative paths are resolved beside `index.html`, not beside `src/`. Use
-`./assets/...` and `./games/...`, never root-relative `/assets/...`: the Pages
-workflow publishes the site under a project path. For a local game, put the
-complete game and every dependency under `games/<id>/`. For a remote game, use
-the HTTPS deployment URL and confirm that its owner permits embedding.
+The ID must be a unique lowercase slug, such as `branch-runner`. Its direct link
+will be `#game/branch-runner`. Do not rename an existing ID just because a game's
+display title changes.
 
-## Artwork review
+Use relative local paths or absolute HTTPS URLs for game/artwork URLs, and an
+absolute HTTPS URL for `repository`. No protocol-relative URLs, credentials,
+`javascript:`, `data:`, or remote `http:` URLs. Relative local paths work on the
+HTTP preview server and the HTTPS production site.
 
-Artwork appears in library cards and, for cover fields, in the playing header.
-Before adding a local or remote reference:
+Paths resolve beside `index.html`. Use `./assets/...` rather than `/assets/...`
+so they work under `/arcade/`. The deployment workflow includes `src/`, `assets/`,
+and optional `games/`; placing dependencies in arbitrary top-level folders will
+not publish them.
 
-1. Confirm the contributor has permission to use and redistribute the image.
-   Keep attribution or license information in the repository when required.
-2. Check that the image is non-empty, readable at card size, and appropriate for
-   the ivory-and-pastel cabinet. Prefer optimized local SVG or PNG artwork.
-3. Use `coverArt` for an illustrated background and `coverCharacter` only for a
-   transparent foreground character. Do not use artwork that looks like a
-   cabinet button, status indicator, or fake control.
-4. Verify every local artwork file is included in the deployed directory. The
-   catalog tests check `art`, `coverArt`, and `coverCharacter` references.
+## 4. Choose a viewport, not a crop
 
-Do not copy a game's implementation into the cabinet or silently redraw another
-project's artwork. The game repository remains the source of gameplay.
+Use `document` for games with surrounding UI. It gives the full page a generous
+iframe height and leaves native scrolling available. Mona's menus and touch
+controls are part of its document and must remain reachable.
 
-## Embedding restrictions
+Use `portrait` for height-driven portrait games such as Flappy. At narrow widths,
+the iframe is capped to a 3:4 shape; the configured height remains an upper bound.
+Do not assume this layout works for every portrait game.
 
-The iframe is intentionally isolated from the cabinet. It allows scripts,
-same-origin storage, pointer lock, fullscreen, and gamepad, but does not allow
-popups or top-level navigation. The cabinet has no shared game API and does not
-inspect cross-origin errors. Do not add `postMessage` contracts or cabinet
-controls for game state, audio, scores, or saves.
+Both height fields accept integers from 320 to 2400 pixels. The defaults are
+960 on desktop and 1100 on mobile; the default layout is `document`. Focus mode
+uses available screen space instead, so check it separately.
 
-Only embed games and dependencies you trust. A local game on the cabinet's own
-origin is not made safe by iframe sandboxing, and remote games may reject
-embedding with `X-Frame-Options` or CSP. Always retain the **Open game** link so
-players have a direct fallback.
+Do not access a cross-origin DOM to guess a document height, forcibly scale the
+whole game with CSS, or hide overflow to disguise broken sizing. If the supported
+hints cannot accommodate a game, discuss a reusable enhancement rather than
+adding a game-ID-specific workaround.
 
-## Viewport guidance
+## 5. Exercise the addition
 
-`viewport.height` and `viewport.mobileHeight` are iframe hints, in pixels, from
-320 through 2400. Use `document` (the default) for pages with headers, controls,
-or content that should scroll naturally. Use `portrait` for a height-driven
-canvas such as Flappy Copilot; narrow screens cap it to a 3:4 shape. These
-values do not resize the inner canvas and focus mode has its own available
-space. Never hide a game's touch controls, minimap, audio settings, or header by
-choosing a smaller value.
+Run `npm start` and `npm test`. The native tests validate the catalog and local
+artwork files and smoke-test the preview server. They do not fetch remote games
+or establish that an iframe actually renders.
 
-## Browser acceptance checklist
+Use browser automation when available, but inspect the rendered result too:
 
-Before merging a catalog addition:
+- [ ] The library shows the new title, description, cover, and correct count.
+- [ ] Both cover layers render in the card and playing-screen header.
+- [ ] Direct `#game/<id>` links and browser Back/Forward work.
+- [ ] The actual game starts and responds to every advertised input.
+- [ ] Mouse launch and keyboard launch focus the iframe. Press Space immediately
+      after launch and after Reload game; it must not activate a cabinet button.
+- [ ] Returning restores focus to the originating card.
+- [ ] At most one iframe exists. Return leaves zero; switching detaches the old
+      frame and stops its simulation/audio rather than merely hiding it.
+- [ ] Open game leads to the correct standalone URL.
+- [ ] Phone widths, including 320px and 390px, have no horizontal page overflow.
+      Touch controls, menus, audio controls, and any minimap remain reachable.
+- [ ] Focus mode and fullscreen retain accessible exits. Check unsupported or
+      rejected fullscreen fallback as well.
+- [ ] Focus indicators remain visible and reduced motion is respected by the
+      cabinet. Report any separate limitations in the embedded game.
+- [ ] Existing Mona and Flappy still launch, play, and return correctly.
+- [ ] Search works when the catalog reaches six games; the library scrolls above
+      four games. Do not replace the grid with a layout hardcoded to this count.
+- [ ] Relative assets and local games resolve when the site is served below a
+      subpath such as `/arcade/`, not just at the origin root.
 
-- [ ] `npm test` passes, including catalog validation and non-empty artwork checks.
-- [ ] The library card has the right title, category, artwork, and accent.
-- [ ] Launching, reloading, switching games, Back/Forward, and `#library` work.
-- [ ] The game receives keyboard focus and its own controls work.
-- [ ] Touch controls, scrolling, audio/settings controls, and pause behavior work
-      on a narrow mobile viewport.
-- [ ] Focus mode, native fullscreen fallback, **Open game**, and return-to-card
-      behavior still work.
-- [ ] No cabinet key, button, audio, score, or save behavior was introduced.
-- [ ] A desktop browser and a real or emulated touch browser show no clipped
-      game UI or broken artwork.
+In the PR, distinguish actual touch-device testing from browser touch emulation.
+Do not claim validation that was not performed.
+
+## 6. Submit and maintain
+
+A normal PR contains the catalog entry, necessary shipping artwork, an update to
+the README game list, and any required attribution. Include a library screenshot,
+the real game URL, the inputs/layouts exercised, and any known limitations.
+Do not edit the test suite's expected total count every time a game is added.
+
+Once Pages is configured, the existing workflow deploys pushes to `main`, so a
+merged catalog PR publishes the new listing. Verify the resulting deployment
+before calling it live. See [deployment instructions](../README.md#github-pages-deployment).
+The intended site slug is `arcade`; do not silently change it.
+
+An independently hosted game can change without an arcade PR. Before releasing
+such an update, check it through the cabinet again. Changes to URLs, advertised
+controls, viewport needs, or artwork require a catalog/asset update here.
+Do not change unrelated game repositories or publish code without authorization.
+
+The cabinet intentionally has no shared score, pause, audio, or save-state API.
+If a future game needs a bridge, stop and design an explicit, origin-validated,
+capability-gated protocol separately. An ordinary catalog addition is not the
+place to invent global controls or silently broaden the sandbox.
