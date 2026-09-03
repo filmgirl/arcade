@@ -6,14 +6,7 @@
     <meta name="theme-color" content="#f7f4ef">
     <meta name="description" content="A little less work. A little more play. A candy-cab arcade for GitHub-themed browser games.">
     <title>GitHub Arcade — The Commit Cabinet</title>
-    <script>
-      (() => {
-        const param = new URLSearchParams(window.location.search).get("scoutTheme");
-        const theme =
-          param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
-        document.documentElement.setAttribute("data-theme", theme);
-      })();
-    </script>
+    <script src="./src/theme.js"></script>
     <link rel="icon" type="image/svg+xml" href="./assets/coin.svg">
     <link rel="stylesheet" href="./styles.css">
     <script type="module" src="./src/app.js"></script>
@@ -23,7 +16,13 @@
     <header class="page-header">
       <a href="#library" class="wordmark"><span aria-hidden="true">⑂</span> filmgirl / arcade</a>
       <span class="header-note">A little less work. A little more play.</span>
-      <a href="https://github.com/filmgirl/arcade" target="_blank" rel="noopener noreferrer">View source <span aria-hidden="true">↗</span></a>
+      <div class="header-actions">
+        <a href="https://github.com/filmgirl/arcade" target="_blank" rel="noopener noreferrer">View source <span aria-hidden="true">↗</span></a>
+        <button id="theme-toggle" class="theme-button" type="button" aria-label="Dark mode" aria-pressed="false" title="Toggle cabinet dark mode" disabled>
+          <svg class="theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20.5 13.5A8.5 8.5 0 0 1 10.5 3.5a8.5 8.5 0 1 0 10 10Z"/></svg>
+          <svg class="theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 1v3m0 16v3M1 12h3m16 0h3M4.2 4.2l2.1 2.1m11.4 11.4 2.1 2.1M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
+        </button>
+      </div>
     </header>
 
     <main id="cabinet" class="cabinet">

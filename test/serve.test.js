@@ -20,7 +20,7 @@ test("preview serves the site and assets without exposing hidden files", async (
   const home = await fetch(base);
   assert.equal(home.status, 200);
   assert.match(await home.text(), /The Commit Cabinet/);
-  for (const path of ["/src/app.js", "/games.json", "/styles.css", "/assets/mona-maze.png", "/assets/flappy-copilot.png", "/assets/mona-cover.svg", "/assets/octocat-candy.svg", "/assets/flappy-cover.svg", "/assets/copilot-candy.svg", "/assets/fonts/Silkscreen-Regular.ttf"]) {
+  for (const path of ["/src/app.js", "/src/theme.js", "/games.json", "/styles.css", "/assets/mona-maze.png", "/assets/flappy-copilot.png", "/assets/mona-cover.svg", "/assets/octocat-candy.svg", "/assets/flappy-cover.svg", "/assets/copilot-candy.svg", "/assets/fonts/Silkscreen-Regular.ttf"]) {
     const response = await fetch(`${base}${path}`);
     assert.equal(response.status, 200, path);
     assert.ok((await response.arrayBuffer()).byteLength > 0, path);
