@@ -6,7 +6,7 @@
     "category": "3D maze chase",
     "url": "https://filmgirl.github.io/mona-maze/",
     "repository": "https://github.com/filmgirl/mona-maze",
-    "art": "./assets/mona-maze.svg",
+    "art": "./assets/mona-maze.png",
     "accent": "lavender",
     "controls": [
       { "keys": "WASD / arrows", "action": "Move; turns are queued" },
@@ -24,7 +24,7 @@
     "category": "One-button survival",
     "url": "https://filmgirl.github.io/flappy-copilot/",
     "repository": "https://github.com/filmgirl/flappy-copilot",
-    "art": "./assets/flappy-copilot.svg",
+    "art": "./assets/flappy-copilot.png",
     "accent": "mint",
     "controls": [
       { "keys": "Space / click / tap", "action": "Flap" },

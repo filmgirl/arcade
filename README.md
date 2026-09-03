@@ -34,8 +34,9 @@ npm test
 | Flappy Copilot | [flappy-copilot](https://filmgirl.github.io/flappy-copilot/) | [filmgirl/flappy-copilot](https://github.com/filmgirl/flappy-copilot) |
 
 The games remain in their own repositories. This project embeds them; it does not
-copy or change their implementations. The cabinet illustrations in `assets/` are
-original cover art, not screenshots. The marquee uses a locally hosted
+copy or change their implementations. The game covers in `assets/` are actual
+gameplay screenshots captured from each live game. The selector crops them to
+fit its cards; it does not redraw or recolor the games. The marquee uses a locally hosted
 [Silkscreen](https://github.com/googlefonts/silkscreen) font; its SIL Open Font
 License is included in `assets/fonts/OFL.txt`. No fonts are fetched from third
 parties at runtime.
@@ -169,7 +170,7 @@ styles.css              Enamel, screen, controls, responsive/focus layouts
 games.json              The only catalog to edit when adding games
 src/catalog.js          Catalog validation and hash parsing
 src/app.js              Rendering, iframe lifecycle, navigation and focus
-assets/                 Original game covers and cabinet favicon
+assets/                 Actual gameplay screenshots and cabinet favicon
 scripts/serve.mjs        Dependency-free local preview server
 test/catalog.test.js    Native Node regression tests
 test/serve.test.js      Local preview HTTP smoke test

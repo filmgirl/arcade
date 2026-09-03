@@ -10,7 +10,7 @@ test("shipped games validate and resolve art under the Pages project path", () =
   const { games, errors } = validateCatalog(catalog, base);
   assert.deepEqual(errors, []);
   assert.equal(games.length, 2);
-  assert.equal(games[0].art, `${base}assets/mona-maze.svg`);
+  assert.equal(games[0].art, `${base}assets/mona-maze.png`);
   assert.equal(games[0].url, "https://filmgirl.github.io/mona-maze/");
   assert.equal(games[1].viewport.layout, "portrait");
 });

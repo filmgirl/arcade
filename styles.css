@@ -157,8 +157,9 @@ button:focus-visible, a:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .game-card { display: flex; flex-direction: column; min-width: 0; width: 100%; border: 1px solid var(--cp-screen-border); background: var(--cp-screen-raised); color: var(--cp-ivory); padding: 0; text-align: left; border-radius: 12px; overflow: hidden; transition: transform 150ms, border-color 150ms; }
 .game-card:hover { transform: translateY(-3px); border-color: var(--cp-lavender); }
 .game-card:active { transform: translateY(0); }
-.art-wrap { display: block; position: relative; aspect-ratio: 16 / 9; width: 100%; background: var(--button-color); }
+.art-wrap { display: block; position: relative; aspect-ratio: 16 / 9; width: 100%; flex-shrink: 0; overflow: hidden; background: var(--button-color); }
 .game-art { display: block; width: 100%; height: 100%; object-fit: cover; }
+.art-wrap .game-art { position: absolute; inset: 0; }
 .game-category { position: absolute; left: 14px; top: 13px; font-size: 8px; letter-spacing: .8px; border-radius: 4px; background: var(--cp-enamel); color: var(--cp-graphite); padding: 4px 7px; }
 .game-info { padding: 17px 19px 16px; display: grid; grid-template-columns: 1fr auto; gap: 7px 10px; flex: 1; width: 100%; }
 .game-name { font-size: 20px; line-height: 1.2; letter-spacing: -.6px; font-weight: 700; grid-column: 1 / -1; }
