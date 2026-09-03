@@ -5,7 +5,7 @@
 This guide is for humans and coding agents. Read [AGENTS.md](../AGENTS.md) for
 repository guardrails and the [catalog field reference](../README.md#add-a-game)
 for exact accepted values. Validate against `src/catalog.js`; do not invent
-manifest fields and assume the player supports them.
+manifest fields or assume the player supports them.
 
 ## 1. Establish that the game is ready
 
