@@ -54,8 +54,9 @@ by this repository. Obtain permission for any new use or redistribution.
 
 ## Add a game
 
-Add an entry to **`games.json`**. No HTML, routing, or JavaScript changes are needed.
-Supply an existing artwork URL, or add an image under `assets/`.
+See **[the complete adding-games guide](docs/adding-games.md)** and
+**[the coding-agent guardrails](AGENTS.md)** before adding an entry to
+**`games.json`**. No HTML, routing, or JavaScript changes are normally needed.
 
 ```json
 {
@@ -169,8 +170,9 @@ own origin**; host only trusted local games. No game-to-parent messaging is used
 3. The workflow runs `npm test`, stages only static site files, uploads the Pages
    artifact, and deploys it. Use the successful deployment's URL.
 
-The expected project URL is `https://filmgirl.github.io/github-arcade/` once Pages
-has been enabled and deployment succeeds. Adding the workflow alone does **not**
+The planned project URL is `https://filmgirl.github.io/arcade/`. Before that URL
+can work, the repository must be renamed from `github-arcade` to `arcade` (and
+the Pages project must be enabled). Adding the workflow alone does **not**
 publish the site. Hash routes do not require rewrites or a custom 404 page.
 Any ordinary static HTTP host also works; serve the files at the site root or
 a subpath with their relative directory structure intact.

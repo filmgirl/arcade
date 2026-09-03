@@ -1,22 +1,38 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { readFile, stat } from "node:fs/promises";
 import { gameFromHash, resolveSafeUrl, validateCatalog } from "../src/catalog.js";
 
 const base = "https://filmgirl.github.io/github-arcade/";
+const deployedRoot = new URL("../", import.meta.url);
 const catalog = JSON.parse(await readFile(new URL("../games.json", import.meta.url), "utf8"));
+const guide = await readFile(new URL("../docs/adding-games.md", import.meta.url), "utf8");
 
-test("shipped games validate and resolve art under the Pages project path", () => {
+test("shipped games validate and resolve art under the Pages project path", async () => {
   const { games, errors } = validateCatalog(catalog, base);
   assert.deepEqual(errors, []);
-  assert.equal(games.length, 2);
-  assert.equal(games[0].art, `${base}assets/mona-maze.png`);
-  assert.equal(games[0].coverArt, `${base}assets/mona-cover.svg`);
-  assert.equal(games[0].coverCharacter, `${base}assets/octocat-candy.svg`);
-  assert.equal(games[1].coverArt, `${base}assets/flappy-cover.svg`);
-  assert.equal(games[1].coverCharacter, `${base}assets/copilot-candy.svg`);
-  assert.equal(games[0].url, "https://filmgirl.github.io/mona-maze/");
-  assert.equal(games[1].viewport.layout, "portrait");
+  assert.ok(games.length > 0);
+  assert.deepEqual(new Set(games.map(({ id }) => id)), new Set(catalog.map(({ id }) => id)));
+  for (const entry of catalog) {
+    for (const field of ["art", "coverArt", "coverCharacter"]) {
+      const reference = entry[field];
+      if (reference === undefined || /^[a-z][a-z\d+.-]*:/i.test(reference)) continue;
+      const artwork = new URL(reference, deployedRoot);
+      const file = await stat(artwork);
+      assert.ok(file.isFile() && file.size > 0, `${entry.id}.${field} must be a non-empty deployed file`);
+    }
+  }
+  const byId = new Map(games.map((game) => [game.id, game]));
+  assert.equal(byId.get("mona-maze").url, "https://filmgirl.github.io/mona-maze/");
+  assert.equal(byId.get("flappy-copilot").viewport.layout, "portrait");
+});
+
+test("the adding-games guide contains a schema-valid catalog example", () => {
+  const example = guide.match(/```json\n([\s\S]*?)\n```/)?.[1];
+  assert.ok(example, "guide should contain a JSON catalog example");
+  const { games, errors } = validateCatalog([JSON.parse(example)], base);
+  assert.equal(games.length, 1);
+  assert.deepEqual(errors, []);
 });
 
 test("local games work under project paths and HTTP development servers", () => {
