@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f7f4ef">
+    <meta name="description" content="A little less work. A little more play. A candy-cab arcade for GitHub-themed browser games.">
+    <title>GitHub Arcade — The Commit Cabinet</title>
+    <script>
+      (() => {
+        const param = new URLSearchParams(window.location.search).get("scoutTheme");
+        const theme =
+          param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+        document.documentElement.setAttribute("data-theme", theme);
+      })();
+    </script>
+    <link rel="icon" type="image/svg+xml" href="./assets/coin.svg">
+    <link rel="stylesheet" href="./styles.css">
+    <script type="module" src="./src/app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#screen">Skip to arcade</a>
+    <header class="page-header">
+      <a href="#library" class="wordmark"><span aria-hidden="true">⑂</span> filmgirl / arcade</a>
+      <span class="header-note">A little less work. A little more play.</span>
+      <a href="https://github.com/filmgirl/github-arcade" target="_blank" rel="noopener noreferrer">View source <span aria-hidden="true">↗</span></a>
+    </header>
+
+    <main id="cabinet" class="cabinet">
+      <header class="cabinet-top">
+        <div class="speaker" aria-hidden="true"></div>
+        <div class="marquee">
+          <p class="micro">THE COMMIT CABINET</p>
+          <h1>GitHub <span>Arcade</span><i aria-hidden="true">✦</i></h1>
+          <p class="marquee-tag">SMALL GAMES. BIG SIDE QUESTS.</p>
+        </div>
+        <div class="speaker" aria-hidden="true"></div>
+      </header>
+
+      <div class="screen-surround">
+        <div class="bezel-label" aria-hidden="true"><span>COMMIT / PLAY / REPEAT</span><span class="power">POWER</span></div>
+        <section id="screen" class="screen" tabindex="-1" aria-label="Arcade screen">
+          <div id="library" class="library">
+            <div class="library-top"><span class="free-play"><i aria-hidden="true"></i> FREE PLAY</span><span id="game-count" class="micro">GAME LIBRARY</span></div>
+            <div class="library-heading">
+              <div><p class="micro">HELLO, PLAYER.</p><h2>Choose your game<span aria-hidden="true">.</span></h2></div>
+              <p>No quarters.<br>No deadlines.</p>
+            </div>
+            <div id="catalog-notice" class="notice" role="status" hidden></div>
+            <div id="catalog-error" class="notice error" role="alert" hidden></div>
+            <label id="search-wrap" class="search-wrap" hidden>Find a game <input id="game-search" type="search" placeholder="Title, genre, or description" autocomplete="off"></label>
+            <div id="game-grid" class="game-grid" aria-label="Games"></div>
+            <p id="empty-results" class="empty-results" hidden>No games match. Try another search.</p>
+            <p id="catalog-loading" class="catalog-loading" role="status">Opening the game library…</p>
+            <div class="library-footer"><span><kbd>Tab</kbd> to choose <kbd>Enter</kbd> to play</span><span id="library-footnote">Made for the joy of it <span aria-hidden="true">♡</span></span></div>
+          </div>
+
+          <section id="player" class="player" aria-labelledby="player-title" hidden>
+            <header id="game-cover" class="game-cover">
+              <div class="cover-copy">
+                <p id="cover-category" class="micro"></p>
+                <h2 id="player-title"></h2>
+                <p id="cover-description"></p>
+              </div>
+              <div id="cover-image" class="cover-image" aria-hidden="true"></div>
+            </header>
+            <div class="player-toolbar">
+              <button id="return-button" class="small-button" type="button"><span aria-hidden="true">←</span> Game library</button>
+              <span id="compact-player-title" class="compact-player-title" aria-hidden="true"></span>
+              <div class="player-actions">
+                <button id="focus-button" class="small-button" type="button" aria-pressed="false">Focus mode</button>
+                <button id="fullscreen-button" class="small-button" type="button">Fullscreen</button>
+                <a id="open-game" class="small-button" target="_blank" rel="noopener noreferrer">Open game <span aria-hidden="true">↗</span></a>
+              </div>
+            </div>
+            <div class="player-help">
+              <p id="frame-status" role="status" aria-live="polite"></p>
+              <div class="player-help-actions">
+                <button id="enter-game" class="text-button" type="button">Focus game controls</button>
+                <button id="reload-game" class="text-button" type="button">Reload game</button>
+                <button id="guide-toggle" class="text-button" type="button" aria-expanded="false" aria-controls="player-guide">How to play</button>
+              </div>
+            </div>
+            <div id="player-guide" class="player-guide" hidden></div>
+            <p id="mode-status" class="mode-status" role="status" hidden></p>
+            <div id="frame-host" class="frame-host"></div>
+          </section>
+        </section>
+        <div class="bezel-bottom" aria-hidden="true"><span>GITHUB ARCADE</span><span>✦</span></div>
+      </div>
+
+      <section id="instruction-strip" class="instruction-strip" aria-labelledby="instruction-title">
+        <div class="instruction-heading"><span class="micro">PLAYER GUIDE</span><h2 id="instruction-title">Pick a game.<br>Take a play break.</h2></div>
+        <div id="instruction-content"><p>Choose a game on the screen to get started.</p><p>Every game has its own controls. Your quick guide will appear right here.</p></div>
+        <span class="instruction-sticker" aria-hidden="true">ALL<br>PLAY<br>NO WORK</span>
+      </section>
+
+      <div class="control-deck">
+        <div class="joystick-decoration" aria-hidden="true"><div class="joystick-base"><div class="joystick-stem"></div><div class="joystick-ball"></div></div><span>CABINET DECOR</span></div>
+        <div class="deck-center"><span class="micro">MAKE TIME<br>FOR PLAY.</span><div class="deck-stripes" aria-hidden="true"><i></i><i></i><i></i></div></div>
+        <div class="cabinet-controls" aria-label="Cabinet controls">
+          <button id="deck-library" class="arcade-control lavender" type="button"><span class="button-cap" aria-hidden="true">▦</span><span>Game library</span></button>
+          <button id="deck-focus" class="arcade-control mint" type="button" disabled aria-pressed="false"><span class="button-cap" aria-hidden="true">⛶</span><span>Focus mode</span></button>
+          <button id="effects-button" class="arcade-control coral" type="button" aria-pressed="false"><span class="button-cap" aria-hidden="true">≋</span><span>CRT effect: off</span></button>
+        </div>
+      </div>
+      <div class="cabinet-base" aria-hidden="true">
+        <div class="cabinet-badge"><span>⑂</span><div>BUILT FOR PLAY<small>THE COMMIT CABINET · FREE PLAY EDITION</small></div></div>
+        <div class="coin-assembly"><div class="coin-slot"></div><span>100%<br>FREE PLAY</span><div class="coin-return"></div></div>
+      </div>
+      <div class="feet" aria-hidden="true"><i></i><i></i></div>
+    </main>
+    <footer class="page-footer"><span>A tiny arcade by <a href="https://github.com/filmgirl" target="_blank" rel="noopener noreferrer">@filmgirl</a>.</span><span>Independent fan project. Not affiliated with GitHub.</span></footer>
+    <noscript><p class="noscript">JavaScript is needed for the cabinet. Play directly: <a href="https://filmgirl.github.io/mona-maze/">Mona's Merge Maze</a> or <a href="https://filmgirl.github.io/flappy-copilot/">Flappy Copilot</a>.</p></noscript>
+  </body>
+</html>

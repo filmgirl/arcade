@@ -1,0 +1,40 @@
+[
+  {
+    "id": "mona-maze",
+    "title": "Mona's Merge Maze",
+    "description": "Eat commits. Dodge bugs. Find your way to a clean deploy.",
+    "category": "3D maze chase",
+    "url": "https://filmgirl.github.io/mona-maze/",
+    "repository": "https://github.com/filmgirl/mona-maze",
+    "art": "./assets/mona-maze.png",
+    "coverArt": "./assets/mona-cover.svg",
+    "coverCharacter": "./assets/octocat-candy.svg",
+    "accent": "lavender",
+    "controls": [
+      { "keys": "WASD / arrows", "action": "Move; turns are queued" },
+      { "keys": "V", "action": "Switch camera" },
+      { "keys": "P / Esc", "action": "Pause" },
+      { "keys": "Enter / Play", "action": "Start" }
+    ],
+    "instructions": "Collect every commit to open the exit. Use the game's own theme, music and effects buttons. On touch devices, movement buttons appear after starting. Scroll inside the game to reach all of its controls.",
+    "viewport": { "layout": "document", "height": 1050, "mobileHeight": 1160 }
+  },
+  {
+    "id": "flappy-copilot",
+    "title": "Flappy Copilot",
+    "description": "One tiny Copilot. An endless pipeline. Keep the build airborne.",
+    "category": "One-button survival",
+    "url": "https://filmgirl.github.io/flappy-copilot/",
+    "repository": "https://github.com/filmgirl/flappy-copilot",
+    "art": "./assets/flappy-copilot.png",
+    "coverArt": "./assets/flappy-cover.svg",
+    "coverCharacter": "./assets/copilot-candy.svg",
+    "accent": "mint",
+    "controls": [
+      { "keys": "Space / click / tap", "action": "Flap" },
+      { "keys": "M", "action": "Toggle the game's audio" }
+    ],
+    "instructions": "Flap through the gaps and keep going. Click or tap the game first to give it keyboard focus. Your score and audio belong to the game, not the cabinet.",
+    "viewport": { "layout": "portrait", "height": 720, "mobileHeight": 640 }
+  }
+]
