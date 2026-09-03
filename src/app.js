@@ -125,8 +125,12 @@ function launch(game) {
   $("instruction-title").textContent = game.title;
   $("instruction-content").replaceChildren(guide(game));
   $("player-guide").replaceChildren(guide(game));
-  $("player-art").replaceChildren(gameArt(game));
+  $("game-cover").className = `game-cover ${game.accent}`;
+  $("cover-image").replaceChildren(gameArt(game));
+  $("cover-category").textContent = game.category;
+  $("cover-description").textContent = game.description;
   $("player-title").textContent = game.title;
+  $("compact-player-title").textContent = game.title;
   $("open-game").href = game.url;
   const repo = element("a", "game-repo", "Game source ↗");
   repo.href = game.repository;

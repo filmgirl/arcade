@@ -218,10 +218,16 @@ button:focus-visible, a:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .noscript { max-width: 700px; padding: 24px; margin: auto; background: var(--cp-bg-elevated); }
 
 /* The player is a full document, not a cropped screenshot of a game canvas. */
+.game-cover { position: relative; display: grid; grid-template-columns: 3fr 2fr; min-height: 164px; isolation: isolate; background: var(--button-color); color: var(--cp-graphite); border-bottom: 1px solid var(--button-edge); overflow: hidden; }
+.cover-copy { align-self: center; position: relative; z-index: 1; padding: 24px 28px; }
+.cover-copy .micro { display: inline-block; margin: 0 0 11px; padding: 4px 7px; border: 1px solid var(--cp-graphite); border-radius: 3px; font-size: 8px; letter-spacing: 1px; text-transform: uppercase; }
+.cover-copy h2 { margin: 0; font: 400 clamp(20px, 2.4vw, 30px)/1.2 "Silkscreen", var(--display); letter-spacing: -1.5px; text-wrap: balance; }
+.cover-copy > p:last-child { margin: 10px 0 0; max-width: 390px; font-size: 12px; line-height: 1.5; }
+.cover-image { position: relative; min-width: 0; overflow: hidden; mask-image: linear-gradient(to right, var(--cp-clear), var(--cp-enamel) 25%); }
+.cover-image .game-art { position: absolute; inset: 0; object-fit: cover; object-position: center; }
 .player-toolbar { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; padding: 14px; border-bottom: 1px solid var(--cp-screen-border); }
-.player-toolbar h2 { flex: 1; margin: 0; font-size: 16px; letter-spacing: -.2px; }
-.player-art { display: block; width: 48px; height: 34px; overflow: hidden; border-radius: 5px; flex-shrink: 0; }
-.player-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.compact-player-title { display: none; flex: 1; font-size: 16px; font-weight: 700; letter-spacing: -.2px; }
+.player-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-left: auto; }
 .small-button { display: inline-flex; align-items: center; justify-content: center; padding: 8px 11px; min-height: 40px; background: var(--cp-screen-raised); border: 1px solid var(--cp-screen-border); border-radius: 7px; color: var(--cp-ivory); font-size: 11px; text-decoration: none; }
 .small-button:hover { border-color: var(--cp-lavender); }
 #return-button { background: var(--cp-lavender); border-color: var(--cp-lavender); color: var(--cp-graphite); font-weight: 700; }
@@ -251,6 +257,8 @@ button:focus-visible, a:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .is-focused .bezel-label, .is-focused .bezel-bottom { display: none; }
 .is-focused .screen { height: 100%; border: 0; border-radius: 0; }
 .is-focused .player { height: 100%; display: flex; flex-direction: column; overflow-y: auto; }
+.is-focused .game-cover { display: none; }
+.is-focused .compact-player-title { display: block; }
 .is-focused .player-toolbar { position: sticky; top: 0; z-index: 6; background: var(--cp-screen); flex-shrink: 0; padding-top: max(10px, env(safe-area-inset-top)); }
 .is-focused .player-guide { max-height: 35dvh; overflow-y: auto; flex-shrink: 0; }
 .is-focused .frame-host { flex: 1; min-height: 200px; display: flex; align-items: center; }
@@ -276,8 +284,7 @@ button:focus-visible, a:focus-visible, input:focus-visible, [tabindex]:focus-vis
   .cabinet-controls { gap: 15px; }
   .cabinet-base { padding-inline: 22px; }
   .header-note { display: none; }
-  .player-toolbar h2 { order: -1; flex-basis: 100%; }
-  .player-art { display: none; }
+  .compact-player-title { order: -1; flex-basis: 100%; }
   .player-actions { margin-left: auto; }
 }
 @media (max-width: 580px) {
@@ -338,7 +345,12 @@ button:focus-visible, a:focus-visible, input:focus-visible, [tabindex]:focus-vis
   .is-playing .screen { border: 0; border-radius: 0; }
   .is-playing .instruction-strip { grid-template-columns: 1fr; margin: 16px; }
   .player-toolbar { padding: 12px; gap: 10px 6px; }
-  .player-toolbar h2 { font-size: 17px; }
+  .game-cover { grid-template-columns: 1fr; min-height: 164px; }
+  .cover-copy { padding: 22px 18px; max-width: 75%; }
+  .cover-copy h2 { font-size: 22px; }
+  .cover-copy > p:last-child { display: none; }
+  .cover-image { position: absolute; inset: 0 0 0 65%; z-index: 0; }
+  .compact-player-title { font-size: 17px; }
   .small-button { padding: 7px 9px; font-size: 10px; min-height: 44px; }
   .player-actions { gap: 6px; }
   .player-help-actions { gap: 15px; }

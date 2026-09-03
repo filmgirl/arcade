@@ -36,7 +36,10 @@ npm test
 The games remain in their own repositories. This project embeds them; it does not
 copy or change their implementations. The game covers in `assets/` are actual
 gameplay screenshots captured from each live game. The selector crops them to
-fit its cards; it does not redraw or recolor the games. The marquee uses a locally hosted
+fit its cards; it does not redraw or recolor the games. While playing, a full-width
+cover header combines the real screenshot with the game's title, genre, and
+cabinet accent color instead of showing a tiny thumbnail. Focus mode hides this
+header to keep the game area clear. The marquee uses a locally hosted
 [Silkscreen](https://github.com/googlefonts/silkscreen) font; its SIL Open Font
 License is included in `assets/fonts/OFL.txt`. No fonts are fetched from third
 parties at runtime.

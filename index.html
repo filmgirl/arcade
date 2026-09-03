@@ -56,10 +56,17 @@
           </div>
 
           <section id="player" class="player" aria-labelledby="player-title" hidden>
+            <header id="game-cover" class="game-cover">
+              <div class="cover-copy">
+                <p id="cover-category" class="micro"></p>
+                <h2 id="player-title"></h2>
+                <p id="cover-description"></p>
+              </div>
+              <div id="cover-image" class="cover-image" aria-hidden="true"></div>
+            </header>
             <div class="player-toolbar">
               <button id="return-button" class="small-button" type="button"><span aria-hidden="true">←</span> Game library</button>
-              <span id="player-art" class="player-art" aria-hidden="true"></span>
-              <h2 id="player-title"></h2>
+              <span id="compact-player-title" class="compact-player-title" aria-hidden="true"></span>
               <div class="player-actions">
                 <button id="focus-button" class="small-button" type="button" aria-pressed="false">Focus mode</button>
                 <button id="fullscreen-button" class="small-button" type="button">Fullscreen</button>
