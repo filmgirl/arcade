@@ -124,6 +124,10 @@ An empty catalog and a failed catalog request have distinct recovery messages.
 
 ## Navigation and accessibility
 
+- The small moon/sun button switches the cabinet between light and dark mode.
+  Your choice is saved when browser storage is available; otherwise it lasts for
+  the current visit. With no explicit choice, the cabinet follows the system
+  color scheme. This does not change the themes of embedded games.
 - Share `#game/mona-maze` or `#game/flappy-copilot` after the site URL. Browser
   Back/Forward works; `#library` returns to the selector. Unknown links show a
   useful message instead of launching a different game.
@@ -150,8 +154,9 @@ An empty catalog and a failed catalog request have distinct recovery messages.
 No game advertises a shared `postMessage` API, so there is deliberately **no global
 pause, mute, score, save state, or leaderboard**. Use each game's own controls.
 The cabinet itself plays no audio. Games may play sound after interaction; use
-Mona's music/effects buttons or Flappy's `M` key. The cabinet does not use cookies
-or local storage; individual games may store their own preferences or scores.
+Mona's music/effects buttons or Flappy's `M` key. The cabinet uses no cookies and
+stores only its explicit theme preference in local storage; individual games
+may store their own preferences or scores.
 
 Remote pages can change or reject embedding. An iframe `load` event is not proof
 that a cross-origin game is healthy. The cabinet reports opening/slow-load/error
