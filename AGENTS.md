@@ -14,7 +14,7 @@ The field reference and deployment instructions are in [README.md](README.md).
   Do not change another game repository unless explicitly asked.
 - Keep IDs stable: `#game/<id>` is a public bookmark. Catalog order is display
   order. There are no hidden registration files or generated route lists.
-- Use relative paths such as `./assets/example-cover.svg`. The intended public
+- Use relative paths such as `./assets/example-cover.svg`. The public
   site is `https://filmgirl.github.io/arcade/`; do not assume deployment at `/`.
 - Do not introduce a framework, runtime dependencies, telemetry, authentication,
   a backend, or a global leaderboard for a catalog addition.

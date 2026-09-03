@@ -167,13 +167,12 @@ own origin**; host only trusted local games. No game-to-parent messaging is used
 
 ## GitHub Pages deployment
 
-The intended public URL is **`https://filmgirl.github.io/arcade/`**. GitHub Pages
-uses the repository name as the project-site path, so the initial deployment plan
-is to rename `github-arcade` to `arcade` and update repository links and git
-remotes before enabling Pages. Do not rename the individual game repositories.
+The public URL is **`https://filmgirl.github.io/arcade/`**, published from
+[`filmgirl/arcade`](https://github.com/filmgirl/arcade). GitHub Pages uses the
+repository name as the project-site path. Keep the `arcade` name and leave the
+individual game repositories unchanged.
 
-1. After the repository name matches the intended slug, in **Settings → Pages**,
-   choose **GitHub Actions** as the
+1. In **Settings → Pages**, choose **GitHub Actions** as the
    build and deployment source.
 2. Push or merge the site to `main`, or run **Deploy arcade to GitHub Pages**
    manually from the Actions tab.
