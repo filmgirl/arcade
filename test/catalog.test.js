@@ -11,6 +11,10 @@ test("shipped games validate and resolve art under the Pages project path", () =
   assert.deepEqual(errors, []);
   assert.equal(games.length, 2);
   assert.equal(games[0].art, `${base}assets/mona-maze.png`);
+  assert.equal(games[0].coverArt, `${base}assets/mona-cover.svg`);
+  assert.equal(games[0].coverCharacter, `${base}assets/octocat-candy.svg`);
+  assert.equal(games[1].coverArt, null);
+  assert.equal(games[1].coverCharacter, null);
   assert.equal(games[0].url, "https://filmgirl.github.io/mona-maze/");
   assert.equal(games[1].viewport.layout, "portrait");
 });
@@ -40,6 +44,8 @@ test("invalid entries produce actionable errors without hiding valid games", () 
     { ...catalog[0], viewport: { layout: "crop" } },
     { ...catalog[0], viewport: { mobileHeight: 100 } },
     { ...catalog[0], accent: "unknown" },
+    { ...catalog[0], coverArt: "javascript:alert(1)" },
+    { ...catalog[0], coverCharacter: "http://example.com/cat.png" },
     null
   ];
   const result = validateCatalog([...invalid, catalog[0], catalog[0]], base);

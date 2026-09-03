@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <title>Candy-cab Octocat</title>
+  <ellipse cx="201" cy="342" rx="112" ry="29" fill="#c5e7d8" stroke="#34313e" stroke-width="3"/>
+  <path d="M146 348q20 14 42 10m22 1q26 0 44-10" fill="none" stroke="#8ab7a3" stroke-width="4" stroke-linecap="round"/>
+  <g fill="#34313e" stroke="#34313e" stroke-width="3" stroke-linejoin="round">
+    <path d="M177 247c-29 21-68 12-85-9-9-11-12-22-25-23-8-1-10 5-5 10 11 11 13 38 43 51 25 11 57 8 78-6Z"/>
+    <path d="M174 214c-13 10-18 27-14 49 4 22 4 44-10 56-6 5-3 12 6 11 23-2 22-31 25-47 2 23 0 39-9 47-5 5-1 10 7 9 23-2 23-32 23-56 2 24 2 46 17 53 9 5 19 1 13-6-14-14-11-30-12-48 5 20 7 39 24 42 9 2 18-3 10-7-15-9-16-33-17-54-1-24-9-41-25-49Z"/>
+    <path d="M93 73 91 27q20-9 50 18 60-20 117 0l43-21q12 18 9 47c29 34 35 73 17 104-21 37-62 47-126 47-67 0-110-14-125-51-13-33-6-66 17-98Z"/>
+  </g>
+  <path d="m104 44 17 8-17 10m177-17-17 10 21 9" fill="#7c6b9d"/>
+  <path d="M111 129c15-18 37-14 59-12 21 2 43 2 65 0 25-2 46-1 57 22 13 28 1 52-20 63-29 16-111 18-143 0-23-13-37-47-18-73Z" fill="#ffd2bd" stroke="#34313e" stroke-width="3"/>
+  <g fill="#fffdf4" stroke="#34313e" stroke-width="2">
+    <ellipse cx="157" cy="161" rx="21" ry="29"/>
+    <ellipse cx="244" cy="161" rx="21" ry="29"/>
+  </g>
+  <g fill="#7c6b9d">
+    <ellipse cx="158" cy="163" rx="13" ry="22"/>
+    <ellipse cx="243" cy="163" rx="13" ry="22"/>
+  </g>
+  <g fill="#fffdf4"><circle cx="153" cy="153" r="4"/><circle cx="238" cy="153" r="4"/></g>
+  <circle cx="201" cy="184" r="4.5" fill="#d28f7f"/>
+  <path d="M190 197q11 13 22 0" fill="none" stroke="#34313e" stroke-width="3" stroke-linecap="round"/>
+  <g fill="none" stroke="#34313e" stroke-width="2.5" stroke-linecap="round">
+    <path d="M89 164q-39-10-74-2m72 12q-41-3-73 9m298-19q39-10 74-2m-72 12q41-3 73 9"/>
+  </g>
+  <g fill="#c5e7d8" stroke="#34313e" stroke-width="1.5">
+    <ellipse cx="71" cy="221" rx="5" ry="3" transform="rotate(20 71 221)"/>
+    <ellipse cx="83" cy="230" rx="5" ry="3" transform="rotate(40 83 230)"/>
+    <ellipse cx="95" cy="243" rx="5" ry="3" transform="rotate(40 95 243)"/>
+    <ellipse cx="110" cy="254" rx="5" ry="3" transform="rotate(20 110 254)"/>
+    <ellipse cx="127" cy="260" rx="5" ry="3"/>
+    <ellipse cx="145" cy="258" rx="5" ry="3"/>
+  </g>
+  <path d="M62 227q-9 14-7 19c3 7 12 4 12-2 0-4-5-17-5-17Z" fill="#c5e7d8" stroke="#34313e" stroke-width="2"/>
+</svg>

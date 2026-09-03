@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360">
+  <defs><pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#b9acd1"/></pattern></defs>
+  <path fill="#ded4f1" d="M0 0h640v360H0z"/><path fill="url(#dots)" d="M0 0h640v360H0z"/>
+  <g transform="translate(320 218) rotate(-18) skewX(18) scale(1 .72)" stroke-linejoin="round">
+    <rect x="-230" y="-158" width="460" height="320" rx="18" fill="#a697be" stroke="#34313e" stroke-width="5"/>
+    <rect x="-230" y="-175" width="460" height="320" rx="18" fill="#fbf7ee" stroke="#34313e" stroke-width="5"/>
+    <g fill="none" stroke="#7c6b9d" stroke-width="17">
+      <path d="M-197-85v-55h125v65h-55v63h-70v108h123V35h69V-77h64v-64h131v64h-60v63h62v114H71V37"/>
+      <path d="M-134-77h-63M-71-140H-7M-5 103h13M133-15H62"/>
+    </g>
+    <g fill="#ffb7a5" stroke="#34313e" stroke-width="2"><circle cx="-160" cy="-112" r="6"/><circle cx="-99" cy="-112" r="6"/><circle cx="-165" cy="25" r="6"/><circle cx="-165" cy="70" r="6"/><circle cx="-104" cy="70" r="6"/><circle cx="22" cy="-110" r="6"/><circle cx="154" cy="-112" r="6"/><circle cx="94" cy="-112" r="6"/><circle cx="161" cy="32" r="6"/><circle cx="161" cy="77" r="6"/></g>
+  </g>
+  <g stroke="#fbf7ee" stroke-width="4"><path d="M109 57v22m-11-11h22M519 261v22m-11-11h22"/></g>
+</svg>

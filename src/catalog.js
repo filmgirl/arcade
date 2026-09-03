@@ -67,7 +67,9 @@ export function validateCatalog(raw, base) {
         category: entry.category === undefined ? "Arcade game" : requiredText(entry.category, "category"),
         url: resolveSafeUrl(entry.url, base, "url"),
         repository: resolveSafeUrl(entry.repository, base, "repository", true),
-        art: resolveSafeUrl(entry.art, base, "art")
+        art: resolveSafeUrl(entry.art, base, "art"),
+        coverArt: entry.coverArt === undefined ? null : resolveSafeUrl(entry.coverArt, base, "coverArt"),
+        coverCharacter: entry.coverCharacter === undefined ? null : resolveSafeUrl(entry.coverCharacter, base, "coverCharacter")
       };
       ids.add(id);
       games.push(game);

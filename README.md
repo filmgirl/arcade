@@ -36,13 +36,20 @@ npm test
 The games remain in their own repositories. This project embeds them; it does not
 copy or change their implementations. The game covers in `assets/` are actual
 gameplay screenshots captured from each live game. The selector crops them to
-fit its cards; it does not redraw or recolor the games. While playing, a full-width
-cover header combines the real screenshot with the game's title, genre, and
-cabinet accent color instead of showing a tiny thumbnail. Focus mode hides this
-header to keep the game area clear. The marquee uses a locally hosted
+fit its cards; it does not redraw or recolor the games. The playing screen has
+a separate cover header: Mona uses an illustrated lavender maze with a candy-cab
+adaptation of the Octocat, while Flappy uses its gameplay screenshot. The title, genre, and accent
+color come from the catalog. Focus mode hides this header to keep the game area
+clear. The marquee uses a locally hosted
 [Silkscreen](https://github.com/googlefonts/silkscreen) font; its SIL Open Font
 License is included in `assets/fonts/OFL.txt`. No fonts are fetched from third
 parties at runtime.
+
+The Octocat in `assets/octocat-candy.svg` is adapted from the
+[official Octocat](https://octodex.github.com/original/). The Octocat design is
+copyright GitHub, Inc. and subject to
+[GitHub's artwork terms](https://octodex.github.com/faq/), not a license granted
+by this repository. Obtain permission for any new use or redistribution.
 
 ## Add a game
 
@@ -81,6 +88,8 @@ Choose embeddable games you trust and have permission to host.
 | `id` | Unique lowercase slug with hyphens; keep it stable to preserve links. |
 | `title`, `description`, `instructions` | Non-empty plain text, rendered without HTML interpretation. |
 | `url`, `art` | Relative local path or absolute HTTPS URL. Credentials, non-HTTPS remote URLs, protocol-relative URLs, and unsafe protocols are rejected. |
+| `coverArt` | Optional separate playing-screen cover image; defaults to the library's `art`. Same URL restrictions apply. |
+| `coverCharacter` | Optional transparent character artwork layered over the cover; must be authorized for use. Same URL restrictions apply. |
 | `repository` | Absolute HTTPS source link. |
 | `controls` | At least one object with non-empty `keys` and `action` strings. |
 | `category` | Optional short genre label; defaults to "Arcade game". |
@@ -173,7 +182,7 @@ styles.css              Enamel, screen, controls, responsive/focus layouts
 games.json              The only catalog to edit when adding games
 src/catalog.js          Catalog validation and hash parsing
 src/app.js              Rendering, iframe lifecycle, navigation and focus
-assets/                 Actual gameplay screenshots and cabinet favicon
+assets/                 Gameplay screenshots, cover artwork, and cabinet favicon
 scripts/serve.mjs        Dependency-free local preview server
 test/catalog.test.js    Native Node regression tests
 test/serve.test.js      Local preview HTTP smoke test

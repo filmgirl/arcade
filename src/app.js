@@ -22,16 +22,16 @@ function notice(id, message) {
   $(id).hidden = !message;
 }
 
-function gameArt(game) {
-  const image = element("img", "game-art");
-  image.src = game.art;
+function gameArt(game, source = game.art, className = "game-art") {
+  const image = element("img", className);
+  image.src = source;
   image.alt = "";
   image.width = 640;
   image.height = 360;
   image.loading = "lazy";
   image.addEventListener("error", () => {
     image.hidden = true;
-    console.warn(`Artwork could not be loaded for ${game.id}: ${game.art}`);
+    console.warn(`Artwork could not be loaded for ${game.id}: ${source}`);
   });
   return image;
 }
@@ -126,7 +126,11 @@ function launch(game) {
   $("instruction-content").replaceChildren(guide(game));
   $("player-guide").replaceChildren(guide(game));
   $("game-cover").className = `game-cover ${game.accent}`;
-  $("cover-image").replaceChildren(gameArt(game));
+  $("cover-image").replaceChildren(gameArt(game, game.coverArt ?? game.art));
+  if (game.coverCharacter) {
+    $("game-cover").classList.add("has-character");
+    $("cover-image").append(gameArt(game, game.coverCharacter, "cover-character"));
+  }
   $("cover-category").textContent = game.category;
   $("cover-description").textContent = game.description;
   $("player-title").textContent = game.title;

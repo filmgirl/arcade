@@ -7,6 +7,8 @@
     "url": "https://filmgirl.github.io/mona-maze/",
     "repository": "https://github.com/filmgirl/mona-maze",
     "art": "./assets/mona-maze.png",
+    "coverArt": "./assets/mona-cover.svg",
+    "coverCharacter": "./assets/octocat-candy.svg",
     "accent": "lavender",
     "controls": [
       { "keys": "WASD / arrows", "action": "Move; turns are queued" },

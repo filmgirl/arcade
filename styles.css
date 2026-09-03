@@ -223,8 +223,10 @@ button:focus-visible, a:focus-visible, input:focus-visible, [tabindex]:focus-vis
 .cover-copy .micro { display: inline-block; margin: 0 0 11px; padding: 4px 7px; border: 1px solid var(--cp-graphite); border-radius: 3px; font-size: 8px; letter-spacing: 1px; text-transform: uppercase; }
 .cover-copy h2 { margin: 0; font: 400 clamp(20px, 2.4vw, 30px)/1.2 "Silkscreen", var(--display); letter-spacing: -1.5px; text-wrap: balance; }
 .cover-copy > p:last-child { margin: 10px 0 0; max-width: 390px; font-size: 12px; line-height: 1.5; }
-.cover-image { position: relative; min-width: 0; overflow: hidden; mask-image: linear-gradient(to right, var(--cp-clear), var(--cp-enamel) 25%); }
-.cover-image .game-art { position: absolute; inset: 0; object-fit: cover; object-position: center; }
+.cover-image { position: relative; min-width: 0; overflow: hidden; }
+.cover-image .game-art { position: absolute; inset: 0; object-fit: cover; object-position: center; mask-image: linear-gradient(to right, var(--cp-clear), var(--cp-enamel) 25%); }
+.game-cover.has-character { min-height: 210px; grid-template-columns: 55fr 45fr; }
+.cover-character { position: absolute; top: 5%; right: 5%; width: 80%; height: 90%; object-fit: contain; }
 .player-toolbar { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; padding: 14px; border-bottom: 1px solid var(--cp-screen-border); }
 .compact-player-title { display: none; flex: 1; font-size: 16px; font-weight: 700; letter-spacing: -.2px; }
 .player-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-left: auto; }
@@ -346,10 +348,13 @@ button:focus-visible, a:focus-visible, input:focus-visible, [tabindex]:focus-vis
   .is-playing .instruction-strip { grid-template-columns: 1fr; margin: 16px; }
   .player-toolbar { padding: 12px; gap: 10px 6px; }
   .game-cover { grid-template-columns: 1fr; min-height: 164px; }
+  .game-cover.has-character { grid-template-columns: 1fr; min-height: 180px; }
   .cover-copy { padding: 22px 18px; max-width: 75%; }
+  .has-character .cover-copy { max-width: 66%; }
   .cover-copy h2 { font-size: 22px; }
   .cover-copy > p:last-child { display: none; }
   .cover-image { position: absolute; inset: 0 0 0 65%; z-index: 0; }
+  .has-character .cover-image { left: 60%; }
   .compact-player-title { font-size: 17px; }
   .small-button { padding: 7px 9px; font-size: 10px; min-height: 44px; }
   .player-actions { gap: 6px; }
