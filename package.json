@@ -1,0 +1,14 @@
+{
+  "name": "github-arcade",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A little candy cabinet for GitHub-themed browser games.",
+  "scripts": {
+    "start": "node scripts/serve.mjs",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360">
+  <defs><pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0v32" fill="none" stroke="#aad0c0" stroke-width="1"/></pattern></defs>
+  <path fill="#c5e7d8" d="M0 0h640v360H0z"/><path fill="url(#grid)" d="M0 0h640v360H0z"/>
+  <g fill="#f8f7eb"><path d="M30 91h22V76h37v15h21v18H30zm390 37h22v-15h37v15h21v18h-80zM150 288h22v-15h37v15h21v18h-80z"/></g>
+  <g stroke="#34313e" stroke-width="4" stroke-linejoin="round">
+    <path d="M465-10h61v117h-61z" fill="#9f8abc"/><path d="M455 98h81v23h-81z" fill="#ded4f1"/>
+    <path d="M465 250h61v125h-61z" fill="#9f8abc"/><path d="M455 232h81v23h-81z" fill="#ded4f1"/>
+    <path d="M114-10h61v50h-61z" fill="#9f8abc"/><path d="M104 28h81v23h-81z" fill="#ded4f1"/>
+    <path d="M114 222h61v153h-61z" fill="#9f8abc"/><path d="M104 202h81v23h-81z" fill="#ded4f1"/>
+  </g>
+  <g transform="translate(315 170) rotate(-9)">
+    <path d="M-50 13l-34 7 30 9-18 17 38-3" fill="#ffb7a5" stroke="#34313e" stroke-width="4" stroke-linejoin="round"/>
+    <path d="M-34 21q-10 46 35 44 40-1 35-45" fill="#fbf7ee" stroke="#34313e" stroke-width="4"/>
+    <path d="M-42-13q0-29 42-29 42 0 42 29v41q-39 18-84 0Z" fill="#34313e"/>
+    <g fill="#fbf7ee" stroke="#34313e" stroke-width="4"><rect x="-57" y="-17" width="49" height="36" rx="12"/><rect x="8" y="-17" width="49" height="36" rx="12"/></g>
+    <g fill="#8eb9aa"><rect x="-48" y="-8" width="31" height="18" rx="5"/><rect x="17" y="-8" width="31" height="18" rx="5"/></g>
+    <path d="M-9-1H9M0-41v-12" stroke="#34313e" stroke-width="5"/><circle cx="0" cy="-56" r="6" fill="#ffb7a5" stroke="#34313e" stroke-width="3"/>
+    <path d="M-9 43h18" stroke="#34313e" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <g fill="none" stroke="#6f9d8c" stroke-width="3" stroke-linecap="round"><path d="M208 147h31m-42 16h36m-28 17h29"/></g>
+  <g fill="#fbf7ee" stroke="#34313e" stroke-width="2"><path d="m399 175 5 12 12 5-12 5-5 12-5-12-12-5 12-5Z"/><path d="m568 161 4 8 8 4-8 4-4 8-4-8-8-4 8-4Z"/></g>
+</svg>

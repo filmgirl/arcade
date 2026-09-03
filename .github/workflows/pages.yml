@@ -1,0 +1,44 @@
+name: Deploy arcade to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm test
+      - uses: actions/configure-pages@v5
+      - name: Stage static site
+        run: |
+          mkdir _site
+          cp index.html styles.css games.json _site/
+          cp -R src assets _site/
+          if [ -d games ]; then cp -R games _site/; fi
+          touch _site/.nojekyll
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
