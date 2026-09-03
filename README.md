@@ -110,8 +110,9 @@ An empty catalog and a failed catalog request have distinct recovery messages.
   useful message instead of launching a different game.
 - Only the selected game gets an iframe. Returning, switching games, and reloading
   remove the previous iframe to stop that browsing context's simulation and audio.
-- Launch focuses the player's **Game library** button; **Focus game controls**
-  moves focus into the iframe. Return restores focus to the originating game card.
+- Launch and reload focus the game iframe, so Space goes to the game instead of
+  activating a cabinet button. **Focus game controls** restores that focus after
+  using the toolbar. Return restores focus to the originating game card.
   The cabinet does not steal key events intended for games.
 - **Focus mode** removes the cabinet without depending on browser fullscreen.
   **Fullscreen** requests native fullscreen and falls back to focus mode if denied

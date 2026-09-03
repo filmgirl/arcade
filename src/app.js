@@ -108,6 +108,7 @@ function mountGame(game) {
     notice("frame-status", "The embedded game could not be loaded. Try Reload game or Open game.");
   });
   $("frame-host").append(iframe);
+  iframe.focus({ preventScroll: true });
   loadTimer = setTimeout(() => {
     notice("frame-status", "The game is taking longer than expected. Try Open game or Reload game.");
   }, 15000);
@@ -135,7 +136,6 @@ function launch(game) {
   $("deck-focus").disabled = false;
   document.title = `${game.title} · GitHub Arcade`;
   mountGame(game);
-  $("return-button").focus({ preventScroll: true });
   $("screen").scrollIntoView({ block: "start", behavior: "instant" });
 }
 
