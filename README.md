@@ -37,8 +37,8 @@ The games remain in their own repositories. This project embeds them; it does no
 copy or change their implementations. The game covers in `assets/` are actual
 gameplay screenshots captured from each live game. The selector crops them to
 fit its cards; it does not redraw or recolor the games. The playing screen has
-a separate cover header: Mona uses an illustrated lavender maze with a candy-cab
-adaptation of the Octocat, while Flappy uses its gameplay screenshot. The title, genre, and accent
+a separate cover header: Mona uses an illustrated lavender maze with a minimal
+pixel Octocat, while Flappy uses its gameplay screenshot. The title, genre, and accent
 color come from the catalog. Focus mode hides this header to keep the game area
 clear. The marquee uses a locally hosted
 [Silkscreen](https://github.com/googlefonts/silkscreen) font; its SIL Open Font
