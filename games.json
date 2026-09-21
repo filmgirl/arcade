@@ -36,5 +36,26 @@
     ],
     "instructions": "Flap through the gaps and keep going. Click or tap the game first to give it keyboard focus. Your score and audio belong to the game, not the cabinet.",
     "viewport": { "layout": "portrait", "height": 720, "mobileHeight": 640 }
+  },
+  {
+    "id": "mona-breaker",
+    "title": "Mona Breaker",
+    "description": "Break commits. Squash bugs. Merge the pull request.",
+    "category": "3D brick breaker",
+    "url": "https://filmgirl.github.io/mona-breaker/",
+    "repository": "https://github.com/filmgirl/mona-breaker",
+    "art": "./assets/mona-breaker.png",
+    "coverArt": "./assets/mona-breaker-cover.svg",
+    "coverCharacter": "./assets/mona-breaker-character.svg",
+    "accent": "coral",
+    "controls": [
+      { "keys": "Mouse / arrows / A D", "action": "Move the paddle" },
+      { "keys": "Drag", "action": "Move the paddle on touch screens" },
+      { "keys": "Space / click / tap", "action": "Launch the ball" },
+      { "keys": "P / Esc", "action": "Pause" },
+      { "keys": "M", "action": "Mute the game's audio" }
+    ],
+    "instructions": "Break every commit square to merge the pull request. Catch Copilot, Dependabot and Actions power-ups and dodge falling bugs. The game pauses when it loses focus; press Space or P to resume. Use the game's own theme, music and effects buttons.",
+    "viewport": { "layout": "document", "height": 1080, "mobileHeight": 1000 }
   }
 ]

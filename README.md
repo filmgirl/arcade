@@ -32,11 +32,13 @@ npm test
 | --- | --- | --- |
 | Mona's Merge Maze | [mona-maze](https://filmgirl.github.io/mona-maze/) | [filmgirl/mona-maze](https://github.com/filmgirl/mona-maze) |
 | Flappy Copilot | [flappy-copilot](https://filmgirl.github.io/flappy-copilot/) | [filmgirl/flappy-copilot](https://github.com/filmgirl/flappy-copilot) |
+| Mona Breaker | [mona-breaker](https://filmgirl.github.io/mona-breaker/) | [filmgirl/mona-breaker](https://github.com/filmgirl/mona-breaker) |
 
 The games remain in their own repositories. This project embeds them; it does not
 copy or change their implementations. The library and playing-screen headers
 share coordinated illustrated covers: a lavender maze and pixel Octocat for
-Mona, and mint commit pipelines with a pixel Copilot for Flappy. Flappy's character
+Mona, mint commit pipelines with a pixel Copilot for Flappy, and a peach
+contribution-graph brick board with the pixel Octocat on a paddle for Mona Breaker. Flappy's character
 uses the actual game's sprite layout with the cabinet's pastel palette.
 The original gameplay PNG captures remain in `assets/` as references and catalog
 fallback artwork. Cover compositions, titles, genres, and accent colors come
@@ -47,7 +49,9 @@ License is included in `assets/fonts/OFL.txt`. No fonts are fetched from third
 parties at runtime.
 
 The Octocat in `assets/octocat-candy.svg` is adapted from the
-[official Octocat](https://octodex.github.com/original/). The Octocat design is
+[official Octocat](https://octodex.github.com/original/).
+`assets/mona-breaker-character.svg` reuses that same pixel Octocat, adding a
+paddle and ball. The Octocat design is
 copyright GitHub, Inc. and subject to
 [GitHub's artwork terms](https://octodex.github.com/faq/), not a license granted
 by this repository. Obtain permission for any new use or redistribution.
