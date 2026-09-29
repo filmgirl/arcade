@@ -12,6 +12,10 @@ manifest fields or assume the player supports them.
 Collect the following before editing the catalog:
 
 - A stable playable HTTPS URL and a source repository URL.
+- Backlinks to `https://filmgirl.github.io/arcade/` on the standalone public page
+  and in the source repository's README on GitHub. Follow the
+  [backlink guardrails](../AGENTS.md#link-games-back-to-github-arcade); request
+  maintainer action if repository changes are outside your scope or permissions.
 - The real title, short description, genre, controls, and start/pause/audio
   behavior. Read the game's documentation and actually play it.
 - Desktop and touch support, including any limitations.
@@ -157,6 +161,13 @@ Use browser automation when available, but inspect the rendered result too:
 - [ ] At most one iframe exists. Return leaves zero; switching detaches the old
       frame and stops its simulation/audio rather than merely hiding it.
 - [ ] Open game leads to the correct standalone URL.
+- [ ] The standalone page has a visible **GitHub Arcade** or **More games in
+      GitHub Arcade** anchor to `https://filmgirl.github.io/arcade/`, reachable
+      by keyboard and touch without triggering gameplay.
+- [ ] The source repository's README on GitHub has a working backlink to
+      `https://filmgirl.github.io/arcade/`.
+- [ ] The embedded game avoids recursive cabinet navigation without requiring
+      popups, top-level navigation, broader sandbox permissions, or messaging.
 - [ ] Phone widths, including 320px and 390px, have no horizontal page overflow.
       Touch controls, menus, audio controls, and any minimap remain reachable.
 - [ ] Focus mode and fullscreen retain accessible exits. Check unsupported or

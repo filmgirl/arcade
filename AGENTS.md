@@ -19,6 +19,26 @@ The field reference and deployment instructions are in [README.md](README.md).
 - Do not introduce a framework, runtime dependencies, telemetry, authentication,
   a backend, or a global leaderboard for a catalog addition.
 
+## Link games back to GitHub Arcade
+
+- Every newly registered game must link to `https://filmgirl.github.io/arcade/`
+  in both places: its standalone public page and its source repository's README
+  as displayed on the GitHub repository landing page. Use a real accessible
+  anchor on the standalone page, labeled **GitHub Arcade** or
+  **More games in GitHub Arcade**, and a Markdown backlink in the README.
+- Keep the page link modest but visible, with visible keyboard focus and a
+  touch-accessible target outside gameplay input targets. Preserve the game's
+  own Play, home, and source links, design, and controls.
+- Avoid recursive cabinet-in-game navigation when embedded. A standalone-only
+  link may be hidden in embeds using the game's existing embed guard or a safe
+  `window.self === window.top` check. Do not broaden the iframe sandbox, require
+  popups or top-level navigation, or invent a game-to-cabinet message bridge.
+- Obtain explicit authorization before editing another game's repository.
+  If changes are outside the task's scope or your permissions, request maintainer
+  action and report the missing backlinks rather than silently changing it.
+  Backlinks belong to the game page and source README, not new catalog fields
+  or player workarounds.
+
 ## Preserve the player contract
 
 - Create only the selected game's iframe. Remove it on return, switch, or reload;
