@@ -33,13 +33,16 @@ npm test
 | Mona's Merge Maze | [mona-maze](https://filmgirl.github.io/mona-maze/) | [filmgirl/mona-maze](https://github.com/filmgirl/mona-maze) |
 | Flappy Copilot | [flappy-copilot](https://filmgirl.github.io/flappy-copilot/) | [filmgirl/flappy-copilot](https://github.com/filmgirl/flappy-copilot) |
 | Mona Breaker | [mona-breaker](https://filmgirl.github.io/mona-breaker/) | [filmgirl/mona-breaker](https://github.com/filmgirl/mona-breaker) |
+| Mona Crossing | [mona-crossing](https://filmgirl.github.io/mona-crossing/) | [filmgirl/mona-crossing](https://github.com/filmgirl/mona-crossing) |
 
 The games remain in their own repositories. This project embeds them; it does not
 copy or change their implementations. The library and playing-screen headers
 share coordinated illustrated covers: a lavender maze and pixel Octocat for
-Mona, mint commit pipelines with a pixel Copilot for Flappy, and a peach
-contribution-graph brick board with the pixel Octocat on a paddle for Mona Breaker. Flappy's character
-uses the actual game's sprite layout with the cabinet's pastel palette.
+Mona, mint commit pipelines with a pixel Copilot for Flappy, a peach
+contribution-graph brick board with the pixel Octocat on a paddle for Mona Breaker,
+and coral bug streets with an aqua commit river and mint gardens for Mona Crossing.
+Flappy's character uses the actual game's sprite layout with the cabinet's pastel
+palette.
 The original gameplay PNG captures remain in `assets/` as references and catalog
 fallback artwork. Cover compositions, titles, genres, and accent colors come
 from the catalog. Focus mode hides the cover header to keep the game area clear.
@@ -51,8 +54,12 @@ parties at runtime.
 The Octocat in `assets/octocat-candy.svg` is adapted from the
 [official Octocat](https://octodex.github.com/original/).
 `assets/mona-breaker-character.svg` reuses that same pixel Octocat, adding a
-paddle and ball. The Octocat design is
-copyright GitHub, Inc. and subject to
+paddle and ball. Mona Crossing reuses the same character layer, and its cover
+includes that silhouette in an original crossing neighborhood. Its original
+game, neighborhood, cover composition, and generated sound effects are
+[MIT-licensed](https://github.com/filmgirl/mona-crossing/blob/main/LICENSE);
+that license does not grant rights to GitHub artwork or trademarks. The Octocat
+design is copyright GitHub, Inc. and subject to
 [GitHub's artwork terms](https://octodex.github.com/faq/), not a license granted
 by this repository. Obtain permission for any new use or redistribution.
 
@@ -158,7 +165,9 @@ An empty catalog and a failed catalog request have distinct recovery messages.
 No game advertises a shared `postMessage` API, so there is deliberately **no global
 pause, mute, score, save state, or leaderboard**. Use each game's own controls.
 The cabinet itself plays no audio. Games may play sound after interaction; use
-Mona's music/effects buttons or Flappy's `M` key. The cabinet uses no cookies and
+Mona Maze's music/effects buttons, Flappy's `M` key, or Mona Crossing's Sound button
+and `M` key. Mona Crossing has generated sound effects, no music, and sound starts
+off; it remembers the game's local setting. The cabinet uses no cookies and
 stores only its explicit theme preference in local storage; individual games
 may store their own preferences or scores.
 

@@ -57,5 +57,27 @@
     ],
     "instructions": "Break every commit square to merge the pull request. Catch Copilot, Dependabot and Actions power-ups and dodge falling bugs. The game pauses when it loses focus; press Space or P to resume. Use the game's own theme, music and effects buttons.",
     "viewport": { "layout": "document", "height": 1080, "mobileHeight": 1000 }
+  },
+  {
+    "id": "mona-crossing",
+    "title": "Mona Crossing",
+    "description": "Dodge bugs. Ride commits. Get Mona home to five main gardens.",
+    "category": "Arcade crossing",
+    "url": "https://filmgirl.github.io/mona-crossing/",
+    "repository": "https://github.com/filmgirl/mona-crossing",
+    "art": "./assets/mona-crossing-gameplay.png",
+    "coverArt": "./assets/mona-crossing-cover.svg",
+    "coverCharacter": "./assets/octocat-candy.svg",
+    "accent": "coral",
+    "controls": [
+      { "keys": "Arrows / WASD", "action": "Hop one tile; hold to repeat" },
+      { "keys": "Enter / Start crossing", "action": "Start; Enter resumes or replays from the playfield" },
+      { "keys": "P / Esc / Pause / Resume", "action": "Pause or resume" },
+      { "keys": "M / Sound", "action": "Toggle the game's sound effects" },
+      { "keys": "Restart", "action": "Start a fresh game with three hearts" },
+      { "keys": "Touch / pointer D-pad", "action": "Tap to hop; hold to repeat" }
+    ],
+    "instructions": "Dodge bug traffic and ride commit logs and pull-request ferries to five main gardens. You have three hearts and 40 seconds per crossing. Click or tap the playfield to give it keyboard focus. Leaving the game pauses it; resume explicitly. Sound effects start off and your sound setting and best score are saved locally. Use the game's own controls and scroll inside it to reach the D-pad and How to cross help.",
+    "viewport": { "layout": "document", "height": 1100, "mobileHeight": 850 }
   }
 ]

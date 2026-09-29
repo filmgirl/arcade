@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" shape-rendering="crispEdges">
+  <title>Mona Crossing: mint gardens, commit river and coral bug streets</title>
+  <desc>Original illustrated game cover with the approved pixel Octocat adapted from GitHub's Octocat.</desc>
+  <defs>
+    <pattern id="contributions" width="16" height="16" patternUnits="userSpaceOnUse"><path fill="#c5e7b1" d="M0 0h16v16H0z"/><path fill="#a7d59e" d="M2 2h5v5H2zM10 10h5v5h-5z"/></pattern>
+    <g id="tree">
+      <path fill="#34313e" d="M-3 6h6v23h-6zM-14-12h28v26h-28zM-18-5h36v13h-36zM-9-17H9v34H-9z"/>
+      <path fill="#c5e7b1" d="M-12-10h24v22h-24zM-16-3h32v9h-32zM-7-15H7v5H-7z"/>
+      <path fill="#86bda0" d="M-11 7h22v5h-22z"/><path fill="#fff7df" d="M-8-8h5v3h-5z"/><path fill="#e7b3b0" d="M-1 14h2v13h-2z"/>
+    </g>
+    <g id="house">
+      <path fill="#a58cbf" d="M4 12h60v40H4z"/><path fill="#34313e" d="M0 8h60v41H0zM-4 0h68v16H-4z"/>
+      <path fill="#fff7df" d="M2 16h56v31H2z"/><path fill="#ffb7a5" d="M-2 2h64v12H-2z"/>
+      <path fill="#fffdf4" d="M0 4h60v2H0zM3 10h8v3H3zM19 10h8v3h-8zM35 10h8v3h-8zM51 10h6v3h-6z"/>
+      <path fill="#34313e" d="M7 21h12v18H7zM41 21h12v18H41zM24 21h13v28H24z"/>
+      <path fill="#ded4f1" d="M9 23h8v14H9zM43 23h8v14h-8z"/><path fill="#ed9eb7" d="M26 23h9v24h-9z"/>
+      <path fill="#fffdf4" d="M12 23h2v13h-2zM46 23h2v13h-2zM20 49h22v4H20z"/>
+      <path fill="#34313e" d="M30 32h3v3h-3z"/>
+    </g>
+    <g id="log">
+      <path fill="#34313e" d="M0 0h116v25H0z"/><path fill="#e7b3b0" d="M2 2h112v21H2z"/>
+      <path fill="#fff7df" d="M4 4h108v3H4z"/><path fill="#34313e" d="M10 12h96v2H10zM19 8h10v10H19zM53 8h10v10H53zM87 8h10v10H87z"/>
+      <path fill="#fffdf4" d="M21 10h6v6h-6zM55 10h6v6h-6zM89 10h6v6h-6z"/>
+    </g>
+    <g id="bug">
+      <path fill="#34313e" d="M7 0h30v32H7zM1 4h42v24H1zM-4 7h9v4h-9zM39 7h9v4h-9zM-4 21h9v4h-9zM39 21h9v4h-9z"/>
+      <path fill="#ded4f1" d="M3 6h38v20H3z"/><path fill="#fffdf4" d="M8 9h8v7H8zM28 9h8v7h-8z"/>
+      <path fill="#34313e" d="M21 6h2v20h-2zM8 8h3v3H8zM33 8h3v3h-3z"/>
+    </g>
+    <g id="mona">
+      <path d="M3 0h4v2h14V0h4v8h2v9h-2v3h-7v4h2v3h2v2h-4v-2h-2v-6h-2v8h-3v-8H9v6H7v2H4v-2h2v-4H1v-2h-3v-4h3v2h5v-2H2v-3H0V8h3Z" fill="#34313e"/>
+      <path d="M5 8h17v2h2v6h-2v2H5v-2H3v-6h2Z" fill="#fffdf4"/>
+      <path d="M7 11h2v4H7zM18 11h2v4h-2zM12 15h3v1h-3z" fill="#34313e"/>
+    </g>
+  </defs>
+  <path fill="url(#contributions)" d="M0 0h640v360H0z"/>
+  <path fill="#fff7df" d="M58 0h8v360h-8zM576 0h8v360h-8z"/>
+  <g><use href="#house" x="78" y="21"/><use href="#house" x="180" y="21"/><use href="#house" x="282" y="21"/><use href="#house" x="384" y="21"/><use href="#house" x="486" y="21"/></g>
+  <path fill="#34313e" d="M66 97h510v95H66z"/><path fill="#96dce2" d="M68 100h506v89H68z"/>
+  <path fill="#d2f1e8" d="M83 117h22v2H83zM159 118h19v2h-19zM285 128h25v2h-25zM453 111h28v2h-28zM90 178h22v2H90zM269 179h27v2h-27zM528 170h25v2h-25z"/>
+  <g><use href="#log" x="74" y="108"/><use href="#log" x="236" y="108"/><use href="#log" x="410" y="108"/><use href="#log" x="112" y="157"/><use href="#log" x="314" y="157"/><use href="#log" x="486" y="157"/></g>
+  <path fill="#34313e" d="M232 139h120v26H232z"/><path fill="#fffdf4" d="M235 142h114v20H235z"/>
+  <path fill="#ed9eb7" d="M248 135h28v26h-28z"/><path fill="#34313e" d="M251 141h3v14h-3zM254 141h6v3h-6zM260 144h3v4h-3zM254 148h6v3h-6zM267 141h3v14h-3zM270 141h6v3h-6zM276 144h3v4h-3zM270 148h6v3h-6zM273 151h3v4h-3z"/>
+  <path fill="#fff7df" d="M66 192h510v22H66zM66 319h510v24H66z"/>
+  <path fill="#34313e" d="M66 214h510v48H66zM66 279h510v42H66z"/>
+  <path fill="#ed9eb7" d="M66 217h510v42H66z"/><path fill="#ffb7a5" d="M66 282h510v36H66z"/>
+  <path fill="#fff7df" d="M80 237h26v2H80zM145 237h26v2h-26zM213 237h26v2h-26zM400 237h26v2h-26zM468 237h26v2h-26zM536 237h26v2h-26zM90 301h26v2H90zM200 301h26v2h-26zM402 301h26v2h-26zM540 301h26v2h-26z"/>
+  <g><use href="#bug" x="118" y="222"/><use href="#bug" x="420" y="222"/><use href="#bug" x="250" y="286"/><use href="#bug" x="493" y="286"/></g>
+  <path fill="#86bda0" d="M66 261h510v3H66zM66 276h510v3H66z"/>
+  <g><use href="#tree" x="31" y="32"/><use href="#tree" x="611" y="41"/><use href="#tree" x="29" y="147"/><use href="#tree" x="609" y="189"/><use href="#tree" x="31" y="296"/><use href="#tree" x="606" y="313"/></g>
+  <g transform="translate(310 242) scale(2)"><use href="#mona"/></g>
+  <path fill="#34313e" d="M112 343h416v14H112z"/><path fill="#fffdf4" d="M115 345h410v10H115z"/>
+  <path fill="#34313e" d="M304 202h3v7h-3zM308 205h7v3h-7zM380 271h3v7h-3zM377 274h9v3h-9z"/>
+</svg>
