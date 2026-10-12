@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360">
+  <title>Contribution-graph Minesweeper board</title>
+  <defs>
+    <pattern id="dots" width="24" height="24" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1" fill="#8ab7a3"/>
+    </pattern>
+    <g id="flag">
+      <path d="M-5 8h10v3H-5zM-2-8h3v16h-3z" fill="#34313e"/>
+      <path d="M1-8h11l-3 5 3 5H1z" fill="#ffb7a5" stroke="#34313e" stroke-width="2.2" stroke-linejoin="round"/>
+    </g>
+    <g id="bug">
+      <circle cx="0" cy="1" r="7" fill="#ffb7a5" stroke="#34313e" stroke-width="2.5"/>
+      <circle cx="0" cy="-6" r="3.5" fill="#34313e"/>
+      <path d="M0-2v10M-9-2l4 2M9-2l-4 2M-10 3h4M10 3h-4M-9 8l4-2M9 8l-4-2" stroke="#34313e" stroke-width="2.2" stroke-linecap="round"/>
+    </g>
+    <g id="num1">
+      <path d="M-3-5h3v10M-4 5h6" fill="none" stroke="#3d8f62" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <g id="num2">
+      <path d="M-4-4h7v4h-7v5h8" fill="none" stroke="#6f5a9a" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+    <g id="num3">
+      <path d="M-4-5h8v5h-6m6 0h0v5h-8" fill="none" stroke="#b11f4b" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </defs>
+  <path fill="#d8f0e4" d="M0 0h640v360H0z"/>
+  <path fill="url(#dots)" d="M0 0h640v360H0z"/>
+  <g transform="translate(320 214) rotate(-18) skewX(18) scale(1 .72)" stroke-linejoin="round">
+    <rect x="-230" y="-158" width="460" height="320" rx="18" fill="#8ab7a3" stroke="#34313e" stroke-width="5"/>
+    <rect x="-230" y="-175" width="460" height="320" rx="18" fill="#fbf7ee" stroke="#34313e" stroke-width="5"/>
+    <!-- Row 1 -->
+    <rect x="-196" y="-146" width="50" height="42" rx="6" fill="#c8ecd2" stroke="#34313e" stroke-width="3"/>
+    <rect x="-138" y="-146" width="50" height="42" rx="6" fill="#92d6a8" stroke="#34313e" stroke-width="3"/>
+    <rect x="-80" y="-146" width="50" height="42" rx="6" fill="#fffdf4" stroke="#34313e" stroke-width="3"/>
+    <use href="#num1" x="-55" y="-125"/>
+    <rect x="-22" y="-146" width="50" height="42" rx="6" fill="#ded4f1" stroke="#34313e" stroke-width="3"/>
+    <use href="#flag" x="3" y="-125"/>
+    <rect x="36" y="-146" width="50" height="42" rx="6" fill="#fffdf4" stroke="#34313e" stroke-width="3"/>
+    <use href="#num1" x="61" y="-125"/>
+    <rect x="94" y="-146" width="50" height="42" rx="6" fill="#c8ecd2" stroke="#34313e" stroke-width="3"/>
+    <rect x="152" y="-146" width="50" height="42" rx="6" fill="#92d6a8" stroke="#34313e" stroke-width="3"/>
+    <!-- Row 2 -->
+    <rect x="-196" y="-96" width="50" height="42" rx="6" fill="#92d6a8" stroke="#34313e" stroke-width="3"/>
+    <rect x="-138" y="-96" width="50" height="42" rx="6" fill="#fffdf4" stroke="#34313e" stroke-width="3"/>
+    <use href="#num1" x="-113" y="-75"/>
+    <rect x="-80" y="-96" width="50" height="42" rx="6" fill="#fffdf4" stroke="#34313e" stroke-width="3"/>
+    <use href="#num2" x="-55" y="-75"/>
+    <rect x="-22" y="-96" width="50" height="42" rx="6" fill="#fffdf4" stroke="#34313e" stroke-width="3"/>
+    <use href="#num2" x="3" y="-75"/>
+    <rect x="36" y="-96" width="50" height="42" rx="6" fill="#fffdf4" stroke="#34313e" stroke-width="3"/>
+    <use href="#num2" x="61" y="-75"/>
+    <rect x="94" y="-96" width="50" height="42" rx="6" fill="#ded4f1" stroke="#34313e" stroke-width="3"/>
+    <use href="#flag" x="119" y="-75"/>
+    <rect x="152" y="-96" width="50" height="42" rx="6" fill="#fffdf4" stroke="#34313e" stroke-width="3"/>
+    <use href="#num1" x="177" y="-75"/>
+    <!-- Row 3 -->
+    <rect x="-196" y="-46" width="50" height="42" rx="6" fill="#c8ecd2" stroke="#34313e" stroke-width="3"/>
+    <rect x="-138" y="-46" width="50" height="42" rx="6" fill="#ded4f1" stroke="#34313e" stroke-width="3"/>
+    <use href="#flag" x="-113" y="-25"/>
+    <rect x="-80" y="-46" width="50" height="42" rx="6" fill="#fffdf4" stroke="#34313e" stroke-width="3"/>
+    <use href="#num3" x="-55" y="-25"/>
+    <rect x="-22" y="-46" width="50" height="42" rx="6" fill="#5fb884" stroke="#34313e" stroke-width="3"/>
+    <rect x="36" y="-46" width="50" height="42" rx="6" fill="#92d6a8" stroke="#34313e" stroke-width="3"/>
+    <rect x="94" y="-46" width="50" height="42" rx="6" fill="#fffdf4" stroke="#34313e" stroke-width="3"/>
+    <use href="#num2" x="119" y="-25"/>
+    <rect x="152" y="-46" width="50" height="42" rx="6" fill="#ded4f1" stroke="#34313e" stroke-width="3"/>
+    <!-- Row 4 -->
+    <rect x="-196" y="4" width="50" height="42" rx="6" fill="#fffdf4" stroke="#34313e" stroke-width="3"/>
+    <use href="#num1" x="-171" y="25"/>
+    <rect x="-138" y="4" width="50" height="42" rx="6" fill="#ded4f1" stroke="#34313e" stroke-width="3"/>
+    <rect x="-80" y="4" width="50" height="42" rx="6" fill="#ffb7a5" stroke="#34313e" stroke-width="3"/>
+    <use href="#bug" x="-55" y="25"/>
+    <rect x="-22" y="4" width="50" height="42" rx="6" fill="#fffdf4" stroke="#34313e" stroke-width="3"/>
+    <use href="#num1" x="3" y="25"/>
+    <rect x="36" y="4" width="50" height="42" rx="6" fill="#3d8f62" stroke="#34313e" stroke-width="3"/>
+    <rect x="94" y="4" width="50" height="42" rx="6" fill="#ded4f1" stroke="#34313e" stroke-width="3"/>
+    <use href="#flag" x="119" y="25"/>
+    <rect x="152" y="4" width="50" height="42" rx="6" fill="#ded4f1" stroke="#34313e" stroke-width="3"/>
+    <!-- Row 5 -->
+    <rect x="-196" y="54" width="50" height="42" rx="6" fill="#ded4f1" stroke="#34313e" stroke-width="3"/>
+    <rect x="-138" y="54" width="50" height="42" rx="6" fill="#ded4f1" stroke="#34313e" stroke-width="3"/>
+    <rect x="-80" y="54" width="50" height="42" rx="6" fill="#ded4f1" stroke="#34313e" stroke-width="3"/>
+    <rect x="-22" y="54" width="50" height="42" rx="6" fill="#c8ecd2" stroke="#34313e" stroke-width="3"/>
+    <rect x="36" y="54" width="50" height="42" rx="6" fill="#92d6a8" stroke="#34313e" stroke-width="3"/>
+    <rect x="94" y="54" width="50" height="42" rx="6" fill="#fffdf4" stroke="#34313e" stroke-width="3"/>
+    <use href="#num1" x="119" y="75"/>
+    <rect x="152" y="54" width="50" height="42" rx="6" fill="#ded4f1" stroke="#34313e" stroke-width="3"/>
+  </g>
+  <g fill="#fffdf4">
+    <path d="M101 50h5v7h7v5h-7v7h-5v-7h-7v-5h7zM533 262h5v7h7v5h-7v7h-5v-7h-7v-5h7z"/>
+  </g>
+</svg>
